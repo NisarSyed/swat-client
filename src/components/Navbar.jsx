@@ -7,7 +7,7 @@ const Navbar = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-indigo-800">
+    <nav className="bg-indigo-950">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -54,35 +54,35 @@ const Navbar = () => {
               <Link to="/" className="flex items-center">
                 <img
                   className="h-8 w-8 mr-2"
-                  src="path_to_your_logo_image"
+                  src="swat.svg"
                   alt="Logo"
                 />
                 <span className="text-white text-2xl font-bold">SWAT</span>
               </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
-              <div className="flex space-x-4">
+              <div className="flex space-x-10 text-size-xl">
                 <Link
                   to="/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 px-3 py-2 rounded-md text-sm font-medium hover:underline underline-offset-4 transition duration-300"
                 >
                   Home
                 </Link>
                 <Link
                   to="/about"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300  px-3 py-2 rounded-md text-sm font-medium"
                 >
                   About
                 </Link>
                 <Link
                   to="/drives"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300  px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Drives
                 </Link>
                 <Link
                   to="/projects"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Projects
                 </Link>

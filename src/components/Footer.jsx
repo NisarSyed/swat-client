@@ -1,98 +1,86 @@
 import React from 'react';
 
-
-// Data array objects
 const footerData = {
-  description: "Plot # 84, Korangi Creek, Karachi, Pakistan, 75190",
   events: [
-    { title: "Event1", link: "#" },
-    { title: "Event2", link: "#" },
-    { title: "Event3", link: "#" },
-    { title: "Event4", link: "#" }
+    { title: 'Earthquake Relief Effort Gilgit Baltistan', url: '#' },
   ],
   ourWork: [
-    { id:1,title: "Project1", link: "#" },
-    { id:2,title: "Project2", link: "#" },
-    { id:3,title: "Project3", link: "#" },
-    { id:4,title: "Project4", link: "#" }
+    { title: 'CLEAN DRINKING WATER PROJECT', url: '#' },
+    { title: 'AFTER SCHOOL & TUITION CENTER - BALDIA TOWN', url: '#' },
+    { title: 'HEALTH CARE PROJECT', url: '#' },
+    { title: 'HIGHER EDUCATION SUPPORT PROGRAM', url: '#' },
   ],
   getInvolved: [
-    { id:1, title: "Home", link: "#" },
-    { id:2, title: "About Us", link: "#" },
-    { id:3, title: "Events", link: "#" },
-    { id:4, title: "Our Work", link: "#" },
-    { id:5, title: "Contact us", link: "#" },
+    { title: 'Home', url: '#' },
+    { title: 'About Us', url: '#' },
+    { title: 'Events', url: '#' },
+    { title: 'Our Work', url: '#' },
+    { title: 'Contact us', url: '#' },
+    { title: 'Activities', url: '#' },
+    { title: 'Gift Aid Form', url: '#' },
   ],
   contact: {
-    address: "",
-    email: "",
-    phone: ""
-  }
+    address: 'IFTA Welfare Trust',
+    email: 'info@iftawelfaretrust.org',
+    phone: '0092 333 3024043',
+  },
 };
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white">
-      {/* Upper Footer Section */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-wrap justify-between">
-          {/* Logo and Description */}
-          <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <img src="swat.svg" alt="Swat" className="h-25 w-24 mb-2" />
-            <p className="text-sm">{footerData.description}</p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="w-full md:w-1/4 mb-6 md:mb-0">
-            <h3 className="text-lg font-semibold mb-4">Events</h3>
-            <ul>
-              {footerData.events.map((event, index) => (
-                <li key={index} className="mb-2">
-                  <a href={event.link} className="hover:text-blue-500 hover:underline">{event.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Our Work */}
-          <div className="w-full md:w-1/5 mb-6 md:mb-0">
-            <h3 className="text-lg font-semibold mb-4">Our Projects</h3>
-            <ul>
-              {footerData.ourWork.map((work, index) => (
-                <li key={index} className="mb-2">
-                  <a href={work.link} className="hover:text-blue-500 hover:underline">{work.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Get Involved */}
-          <div className="w-full md:w-1/5 mb-6 md:mb-0">
-            <h3 className="text-lg font-semibold mb-4">Get Involved</h3>
-            <ul>
-              {footerData.getInvolved.map((item, index) => (
-                <li key={index} className="mb-2">
-                  <a href={item.link} className="hover:text-blue-500 hover:underline">{item.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="w-full md:w-1/5">
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <p className="mb-2"><i className="fas fa-map-marker-alt mr-2"></i>Address: {footerData.contact.address}</p>
-            <p className="mb-2"><i className="fas fa-envelope mr-2"></i>Email: {footerData.contact.email}</p>
-            <p className="mb-2"><i className="fas fa-phone mr-2"></i>Phone: {footerData.contact.phone}</p>
-          </div>
+    <footer className="bg-indigo-950 text-white p-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline">Events</h2>
+          <ul>
+            {footerData.events.map((item, index) => (
+              <li key={index} className="flex items-center">
+                <span className="text-indigo-500 mr-2">&#9658;</span>
+                <a href={item.url} className="hover:text-indigo-500">{item.title}</a>
+              </li>
+            ))}
+          </ul>
+          
+        </div>
+        
+        <div>
+          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline-offset-2">Our Project</h2>
+          <ul>
+            {footerData.ourWork.map((item, index) => (
+              <li key={index} className="flex items-start">
+                <span className="text-indigo-500 mr-2 mt-1">&#9658;</span>
+                <a href={item.url} className="hover:text-indigo-500">{item.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div>
+          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline">Get Involved</h2>
+          <ul>
+            {footerData.getInvolved.map((item, index) => (
+              <li key={index} className="flex items-center">
+                <span className="text-indigo-500 mr-2">&#9658;</span>
+                <a href={item.url} className="hover:text-indigo-500">{item.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div>
+          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline">Contact</h2>
+          <p className="flex items-center"><span className="text-indigo-500 mr-2">&#9679;</span>Address: {footerData.contact.address}</p>
+          <p className="flex items-center"><span className="text-indigo-500 mr-2">&#9679;</span>Email: {footerData.contact.email}</p>
+          <p className="flex items-center"><span className="text-indigo-500 mr-2">&#9679;</span>Phone: {footerData.contact.phone}</p>
         </div>
       </div>
-
-      {/* Lower Footer Section */}
-      <div className="bg-gray-900 py-4">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <p className="text-sm">&copy; SWAT Welfare Organization. All rights reserved.</p>
-        </div>
+      
+      <div className="mt-8 text-center text-gray-400">
+        <p>&copy; 2023 SWAT Welfare Trust. All rights reserved.</p>
+        <p className="mt-2">
+          <a href="#" className="hover:text-indigo-500 mr-4">Terms And Condition</a>
+          <a href="#" className="hover:text-indigo-500">Privacy Policy</a>
+        </p>
       </div>
     </footer>
   );
