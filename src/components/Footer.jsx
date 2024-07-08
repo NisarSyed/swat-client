@@ -28,10 +28,10 @@ const footerData = {
 
 const Footer = () => {
   return (
-    <footer className="bg-indigo-950 text-white p-8">
+    <footer className="bg-indigo-950 text-white p-8 font-raleway">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline">Events</h2>
+          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline ">Events</h2>
           <ul>
             {footerData.events.map((item, index) => (
               <li key={index} className="flex items-center">

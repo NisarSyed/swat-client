@@ -2,14 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 @layer base {
     @font-face {
-      font-family: 'Roboto';
+      font-family: "Raleway",'sans-serif';
       font-style: normal;
       font-weight: 400;
       font-display: swap;
       src: url(/fonts/Roboto.woff2) format('woff2');
     }
+    
   }
 
+  @layer utilities {
+    .nav-link {
+      @apply relative ml-10 tracking-[1px] hover:text-white;
+    }
+  
+    .nav-link::after {
+      @apply content-[''] bg-indigo-500 mr-2 h-[3px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300;
+    }
+  
+    .nav-link:hover::after {
+      @apply w-[80%];
+    }
+  }

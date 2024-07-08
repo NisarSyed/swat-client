@@ -7,9 +7,9 @@ const Navbar = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-indigo-950">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
+    <nav className="bg-indigo-950 font-poppins text-transform: uppercase">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative flex items-center justify-between h-[2cm]">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
               onClick={toggle}
@@ -53,7 +53,7 @@ const Navbar = () => {
             <div className="flex-shrink-0 flex items-center">
               <Link to="/" className="flex items-center">
                 <img
-                  className="h-8 w-8 mr-2"
+                  className="h-12 w-12 mr-4"
                   src="swat.svg"
                   alt="Logo"
                 />
@@ -64,31 +64,31 @@ const Navbar = () => {
               <div className="flex space-x-10 text-size-xl">
                 <Link
                   to="/"
-                  className="text-gray-300 px-3 py-2 rounded-md text-sm font-medium hover:underline underline-offset-4 transition duration-300"
+                  className="nav-link text-gray-300 px-3 py-2 rounded-md text-xl font-bold "
                 >
                   Home
                 </Link>
                 <Link
                   to="/about"
-                  className="text-gray-300  px-3 py-2 rounded-md text-sm font-medium"
+                  className="nav-link text-gray-300  px-3 py-2 rounded-md text-xl font-bold"
                 >
                   About
                 </Link>
                 <Link
                   to="/drives"
-                  className="text-gray-300  px-3 py-2 rounded-md text-sm font-medium"
+                  className="nav-link text-gray-300  px-3 py-2 rounded-md text-xl font-bold"
                 >
                   Drives
                 </Link>
                 <Link
                   to="/projects"
-                  className="text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+                  className="nav-link text-gray-300 px-3 py-2 rounded-md text-xl font-bold"
                 >
                   Projects
                 </Link>
                 <Link
                   to="/contact"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-bold"
                 >
                   Contact
                 </Link>
@@ -101,34 +101,37 @@ const Navbar = () => {
         <div className="px-2 pt-2 pb-3 space-y-1 color-white">
           <Link
             to="/"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             About
           </Link>
           <Link
             to="/drives"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             Drives
           </Link>
           <Link
             to="/projects"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             Projects
           </Link>
           <Link
             to="/contact"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             Contact
           </Link>
+          <button>
+            Donate Now
+          </button>
         </div>
       </div>
     </nav>
