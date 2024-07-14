@@ -1,5 +1,12 @@
 import React from 'react';
 
+
+
+const handleSubmit = () =>
+{
+  console.log("Form submitted");
+
+}
 // Data object arrays
 const sidebarLinks = [
   { href: "/about", text: "About Us" },
@@ -44,7 +51,7 @@ const Contact = () => {
         <div className="flex flex-wrap -mx-4">
           {/* Left Sidebar */}
           <div className="w-full md:w-1/4 px-4 mb-8">
-            <div className="bg-orange-500 rounded-t-lg">
+            <div className="bg-indigo-950 rounded-t-lg">
               <h2 className="text-white text-xl font-semibold p-4">About us</h2>
             </div>
             <ul className="bg-gray-100 rounded-b-lg">
@@ -88,7 +95,7 @@ const Contact = () => {
               <div className="mb-4">
                 <textarea placeholder="Message" rows="5" className="w-full p-2 rounded border"></textarea>
               </div>
-              <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+              <button type="submit" className="bg-indigo-950 text-white px-4 py-2 rounded hover:bg-indigo-800" onClick={handleSubmit}>
                 Submit
               </button>
             </form>

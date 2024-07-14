@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaFacebook, FaYoutube, FaInstagram } from 'react-icons/fa';
+import { Mail, Phone, MapPinIcon , ChevronRight} from 'lucide-react';
 
 const footerData = {
   events: [
@@ -11,76 +13,84 @@ const footerData = {
     { title: 'HIGHER EDUCATION SUPPORT PROGRAM', url: '#' },
   ],
   getInvolved: [
-    { title: 'Home', url: '#' },
-    { title: 'About Us', url: '#' },
-    { title: 'Events', url: '#' },
-    { title: 'Our Work', url: '#' },
-    { title: 'Contact us', url: '#' },
-    { title: 'Activities', url: '#' },
-    { title: 'Gift Aid Form', url: '#' },
+    { title: 'Home', url: '/' },
+    { title: 'About Us', url: '/about' },
+    { title: 'Our Projects', url: '/projects' },
+    { title: 'Drives', url: '/drives' },
+    { title: 'Contact us', url: '/contact' },
   ],
   contact: {
-    address: 'IFTA Welfare Trust',
-    email: 'info@iftawelfaretrust.org',
+    address: 'SWAT Welfare Society IOBM',
+    email: 'info@swat.org',
     phone: '0092 333 3024043',
   },
 };
 
+const EventItem = ({ item }) => (
+  <li className="flex items-center">
+    <span className="text-indigo-500 mr-2"><ChevronRight/></span>
+    <a href={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</a>
+  </li>
+);
+
+const OurWorkItem = ({ item }) => (
+  <li className="flex items-center mb-1">
+    <span className="text-indigo-500 mr-2 mt-1"><ChevronRight/></span>
+    <a href={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</a>
+  </li>
+);
+
+const GetInvolvedItem = ({ item }) => (
+  <li className="flex items-center">
+    <span className="text-indigo-500 mr-2"><ChevronRight/></span>
+    <a href={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</a>
+  </li>
+);
+
+const ContactInfo = ({ icon, text }) => (
+  <p className="flex items-center">
+    <span className="text-indigo-500 mr-2">{icon}</span>
+    {text}
+  </p>
+);
+
 const Footer = () => {
   return (
     <footer className="bg-indigo-950 text-white p-8 font-raleway">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline ">Events</h2>
+      <div className="flex justify-between mx-auto max-w-auto px-10">
+        <div className="flex flex-col space-y-4">
+          <h2 className="text-2xl font-bold mb-4 text-indigo-400 underline font-serif">Events</h2>
           <ul>
             {footerData.events.map((item, index) => (
-              <li key={index} className="flex items-center">
-                <span className="text-indigo-500 mr-2">&#9658;</span>
-                <a href={item.url} className="hover:text-indigo-500">{item.title}</a>
-              </li>
+              <EventItem key={index} item={item} />
             ))}
           </ul>
-          
         </div>
         
-        <div>
-          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline-offset-2">Our Project</h2>
+        <div className="flex flex-col space-y-4 ml-4">
+          <h2 className="text-2xl font-bold mb-4 text-indigo-400 underline-offset-2">Our Project</h2>
           <ul>
             {footerData.ourWork.map((item, index) => (
-              <li key={index} className="flex items-start">
-                <span className="text-indigo-500 mr-2 mt-1">&#9658;</span>
-                <a href={item.url} className="hover:text-indigo-500">{item.title}</a>
-              </li>
+              <OurWorkItem key={index} item={item} />
             ))}
           </ul>
         </div>
         
-        <div>
-          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline">Get Involved</h2>
+        <div className="flex flex-col space-y-4 ml-4">
+          <h2 className="text-2xl font-bold mb-4 text-indigo-400 underline-offset-1">Get Involved</h2>
           <ul>
             {footerData.getInvolved.map((item, index) => (
-              <li key={index} className="flex items-center">
-                <span className="text-indigo-500 mr-2">&#9658;</span>
-                <a href={item.url} className="hover:text-indigo-500">{item.title}</a>
-              </li>
+              <GetInvolvedItem key={index} item={item} />
             ))}
           </ul>
         </div>
         
-        <div>
-          <h2 className="text-xl font-bold mb-4 text-indigo-400 underline">Contact</h2>
-          <p className="flex items-center"><span className="text-indigo-500 mr-2">&#9679;</span>Address: {footerData.contact.address}</p>
-          <p className="flex items-center"><span className="text-indigo-500 mr-2">&#9679;</span>Email: {footerData.contact.email}</p>
-          <p className="flex items-center"><span className="text-indigo-500 mr-2">&#9679;</span>Phone: {footerData.contact.phone}</p>
+        <div className="flex flex-col space-y-4 ml-4">
+          <h2 className="text-2xl font-bold mb-4 text-indigo-400 underline">Contact</h2>
+          <ContactInfo icon={<MapPinIcon className='pr-1 mb-1'/>} text={`Address: ${footerData.contact.address}`} />
+          <ContactInfo icon={<Mail className='pr-1 mb-1'/>} text={`Email: ${footerData.contact.email}`} />
+          <ContactInfo icon={<Phone className='pr-1 mb-1'/>} text={`Phone: ${footerData.contact.phone}`} />
         </div>
-      </div>
-      
-      <div className="mt-8 text-center text-gray-400">
-        <p>&copy; 2023 SWAT Welfare Trust. All rights reserved.</p>
-        <p className="mt-2">
-          <a href="#" className="hover:text-indigo-500 mr-4">Terms And Condition</a>
-          <a href="#" className="hover:text-indigo-500">Privacy Policy</a>
-        </p>
       </div>
     </footer>
   );
