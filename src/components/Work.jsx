@@ -1,8 +1,10 @@
 import React from 'react'
+import ProjectSlider from '../pages/Projects'
 
 const Work = () => {
   return (
-    <div>Work</div>
+    <ProjectSlider />
+    
   )
 }
 

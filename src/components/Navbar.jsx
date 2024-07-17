@@ -10,28 +10,28 @@ const Navbar = () => {
     { id: 3, name: "Drive 3" },
   ];
 
-  const navLinkClass = "nav-link text-gray-300 px-3 py-2 rounded-md text-xl font-bold";
+  const navLinkClass = "nav-link text-gray-300 px-10 py-2 rounded-md text-2xl font-bold";
   const dropdownClass = "absolute bg-indigo-950 rounded-md shadow-lg z-10";
 
   return (
-    <nav className="bg-indigo-950 font-serif text-transform: uppercase">
+    <nav className="bg-indigo-950 font-raleway text-transform: uppercase">
       <div className="max-w-7xl mx-auto space-x-20 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center h-[2cm] px-4">
           <div className="hidden sm:block sm:ml-6">
-            <div className="flex space-x-10 text-size-xl">
+            <div className="flex ">
               <Link to="/" className={navLinkClass}>
                 Home
               </Link>
               <Link to="/about" className={navLinkClass}>
                 About
               </Link>
-              <div
+              <Link to="/drives"
                 className={navLinkClass}
-                onMouseEnter={() => setIsDrivesDropdownOpen(true)}
-                onMouseLeave={() => setIsDrivesDropdownOpen(false)}
+                // onMouseEnter={() => setIsDrivesDropdownOpen(true)}
+                // onMouseLeave={() => setIsDrivesDropdownOpen(false)}
               >
-                  Drives
-                {isDrivesDropdownOpen && (
+                Drives
+                {/* {isDrivesDropdownOpen && (
                   <div className={dropdownClass}>
                     {drives.map((drive) => (
                       <Link
@@ -43,12 +43,13 @@ const Navbar = () => {
                       </Link>
                     ))}
                   </div>
-                )}
-              </div>
+                )} */}
+              </Link>
+              
               <Link to="/projects" className={navLinkClass}>
                 Projects
               </Link>
-              <Link to="/contact" className={`${navLinkClass} hover:text-white`}>
+              <Link to="/contact" className={navLinkClass}>
                 Contact
               </Link>
             </div>

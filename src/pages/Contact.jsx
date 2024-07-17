@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Banner from '../components/Banner';
 
 
 const handleSubmit = () =>
@@ -31,20 +31,14 @@ const formFields = [
   { name: "subject", type: "text", placeholder: "Subject" },
 ];
 
+const banner =
+  { id: 3, src: "2024-04-07_17-58-36_UTC_7.jpg", alt: "Banner 3" }
+
 const Contact = () => {
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <div className="relative h-64 bg-gray-800">
-        <img 
-          src="/path-to-your-hero-image.jpg" 
-          alt="Children smiling" 
-          className="w-full h-full object-cover opacity-30"
-        />
-        <h1 className="absolute top-1/2 left-10 transform -translate-y-1/2 text-5xl font-bold text-white">
-          Contact us
-        </h1>
-      </div>
+    <div className="bg-white font-raleway text-xl">
+      
+      <Banner banner={banner} text="Contact Us" />
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
