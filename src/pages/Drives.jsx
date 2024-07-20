@@ -3,35 +3,9 @@ import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import Banner from '../components/Banner';
 import DrivesCard from '../components/DrivesCard';
+import { useNavigate } from 'react-router';
 import { Ban } from 'lucide-react';
 
-const driveData = [
-  {
-    id: 1,
-    title: 'Jacob Javed Home Old Age Drive',
-    description: 'Drive 1 Description',
-    image: '2024-04-07_17-58-36_UTC_7.jpg',
-  },
-  {
-    id: 2,
-    title: 'Ramzan Drive',
-    description: 'Drive 2 Description',
-    image: '2024-04-07_17-58-36_UTC_7.jpg',
-  },
-  {
-    id: 3,
-    title: 'Ration Drive',
-    description: 'Drive 3 Description',
-    image: '2024-04-07_17-58-36_UTC_7.jpg',
-  },
-  {
-    id: 4,
-    title: 'Visit to Baitul Maal School',
-    description: 'Drive 4 Description',
-    image: '2024-04-07_17-58-36_UTC_7.jpg',
-  },
-
-];
 
 const banner = {
   id: 1,
@@ -39,13 +13,16 @@ const banner = {
   alt: 'Banner 1',
 };
 
-const Drives = () => {
+const Drives = ({drives}) => {
+
+  const navigate = useNavigate();
 
   const [isVisible, setIsVisible] = React.useState(false);
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
+  
 
   return (
     <>
@@ -54,14 +31,16 @@ const Drives = () => {
       <div className="text-left font-serif px-5 mt-10 underline-custom">
         <h2 className="text-5xl font-bold text-pretty antialiased accent-slate-200 text-indigo-900 px-32 font-raleway">Drives</h2>
       </div>
-      <div className="flex justify-center items-center flex-row mt-10 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5 p-2 px-20">
+  
         {
-          driveData.map((drive) => (
+          drives.map((drive) => (
             <DrivesCard key={drive.id} 
             title={drive.title}
             description={drive.description}
-            image={drive.image}
-            navigateTo={`/drives/${drive.id}`}
+            image={drive.images[0]}
+            navigateTo = {()=>
+              navigate(`/drives/${drive.id}`) }
             />
           ))
         }

@@ -7,11 +7,15 @@ import Drives from './pages/Drives';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Header from './components/Header';
+import DriveDetail from './pages/DriveDetail';
 import EnhancedHeader from './components/EnhancedHeader';
-
+import useDrives from './components/useDrives';
 
 
 function App() {
+
+  const {drives, getDriveById} = useDrives();
+  
   return (
     <Router>
       <div className='flex-col'>
@@ -20,7 +24,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/drives" element={<Drives />} />
+          <Route path="/drives" element={<Drives drives={drives} />} />
+          <Route path="/drives/:id" element={<DriveDetail getDriveById={getDriveById} />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

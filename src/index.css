@@ -22,10 +22,10 @@
     }
   
     .nav-link::after {
-      @apply content-[''] bg-red-500 h-[4px] w-[0%] left-4 -bottom-[5px] rounded-xl absolute duration-300;
+      @apply content-[''] bg-red-700 h-[4px] w-[0%] left-6 -bottom-[5px] rounded-xl absolute duration-300 ;
     }
   
     .nav-link:hover::after {
-      @apply w-[60%] ml-4 mr-10;
+      @apply w-[50%] ml-10 mr-20;
     }
   }

@@ -56,6 +56,7 @@ const ContactInfo = ({ icon, text }) => (
 
 const Footer = () => {
   return (
+    <div className='relative '>
     <footer className="bg-indigo-950 text-white p-8 font-raleway">
       <div className="flex justify-between mx-auto max-w-auto px-10">
         <div className="flex flex-col space-y-4">
@@ -93,6 +94,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </div>
   );
 };
 

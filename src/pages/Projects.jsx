@@ -93,13 +93,14 @@ const ProjectSlider = () => {
   ];
 
   return (
-    <div className="bg-gray-100 p-8 font-raleway text-justify h-screen">
-      <h2 className="text-4xl font-bold mb-6  text-indigo-950 p-4">
-        Our Projects
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className='relative'>
+    <div className="bg-gray-100 p-8 font-raleway text-justify">
+      <div className="text-left font-serif px-5 mt-10 underline-custom">
+        <h2 className="text-5xl font-bold text-pretty antialiased accent-slate-200 text-indigo-900 px-32 font-raleway">Our Projects</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
         {projects.map((project, index) => (
-          <Card
+          <Card 
             key={index}
             title={project.title}
             description={project.shortDescription}
@@ -117,6 +118,7 @@ const ProjectSlider = () => {
           onClose={() => setIsSelect(false)}
           project={isSelect}
         />
+    </div>
     </div>
   )
 

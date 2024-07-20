@@ -39,14 +39,16 @@ const HelpOptions = () => {
   ];
 
   return (
-    <div className="bg-gray-100 p-10 font-raleway h-full" style={{ height: "650px" }}>
-      <h1 className="text-5xl font-bold text-center mb-8 text-indigo-950 my-5">
-        How can you help <span className="text-red-500 underline font-raleway">us</span> ?
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-20 ">
-        {options.map((option, index) => (
-          <HelpOption key={index} icon={option.icon} text={option.text} details={option.details} />
-        ))}
+    <div className='relative'>
+      <div className="bg-gray-100 p-10 font-raleway h-full" style={{ height: "650px" }}>
+        <h1 className="text-5xl font-bold text-center mb-8 text-indigo-950 my-5">
+          How can you help <span className="text-red-500 underline font-raleway">us</span> ?
+        </h1>
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-20">
+          {options.map((option, index) => (
+            <HelpOption key={index} icon={option.icon} text={option.text} details={option.details} />
+          ))}
+        </div>
       </div>
     </div>
   );

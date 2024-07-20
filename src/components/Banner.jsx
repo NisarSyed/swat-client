@@ -28,9 +28,9 @@ function Banner({ banner, text }) {
             display: block;
             width: 75%;
             height: 5px;
-            background-color: #EF4444
-;
-            margin: 0 0 0 auto;
+            background-color: #EF4444;
+            margin:  0 0 0 auto;
+            padding: 2px;
           }
         `}
       </style>
@@ -41,14 +41,13 @@ function Banner({ banner, text }) {
             alt={banner.alt}
             className="w-full h-full object-cover"
           />
-        <div className="absolute top-0 left-0 w-full h-full bg-indigo-950 bg-opacity-70 flex items-center justify-left bg-gradient-to-t from-black/80 via-black/0">
+        <div className="absolute top-0 left-0 w-full h-full bg-indigo-950 bg-opacity-80 flex items-center justify-left bg-gradient-to-t from-black/80 via-black/0">
           <div className="text-center justify-items-start">
             <h1
               className={`px-3 sm:text-4xl md:text-5xl lg:text-4xl text-white font-bold font-raleway text-gray fade-in ${
                 isVisible ? 'visible' : ''
               }`}
             >
-              Welcome to {text} Page
             </h1>
           </div>
         </div>
