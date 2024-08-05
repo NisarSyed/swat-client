@@ -34,7 +34,7 @@ function Banner({ banner, text }) {
           }
         `}
       </style>
-      <div className="relative">
+      <div className="">
         <div key={banner.id} className="relative md:h-96">
           <img
             src={banner.src}
@@ -42,12 +42,13 @@ function Banner({ banner, text }) {
             className="w-full h-full object-cover"
           />
         <div className="absolute top-0 left-0 w-full h-full bg-indigo-950 bg-opacity-80 flex items-center justify-left bg-gradient-to-t from-black/80 via-black/0">
-          <div className="text-center justify-items-start">
+          <div className="text-center justify-items-center">
             <h1
-              className={`px-3 sm:text-4xl md:text-5xl lg:text-4xl text-white font-bold font-raleway text-gray fade-in ${
+              className={`px-3 sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold font-raleway text-gray fade-in ${
                 isVisible ? 'visible' : ''
               }`}
             >
+              {text}
             </h1>
           </div>
         </div>

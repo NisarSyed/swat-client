@@ -77,13 +77,14 @@ const ImageGallery = ({ images }) => {
     </div>
   );
 };
-const DriveDetail = ({getDriveById}) => {
+const ProjectDetail = ({getProjectbyId}) => {
   const { id } = useParams();
 
-  const drive = getDriveById(id);
+  const project = getProjectbyId(id);
+  console.log(project);
 
-  if (!drive) {
-    return <div>Drive not found</div>;
+  if (!project) {
+    return <div>Project not found</div>;
   }
 
   return (
@@ -91,36 +92,36 @@ const DriveDetail = ({getDriveById}) => {
       <div className="bg-indigo-950 h-64 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-950 to-red-700 opacity-75"></div>
         <div className="container mx-auto px-4 h-full flex items-end pb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10">{drive.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10">{project.title}</h1>
         </div>
       </div>
       
       <div className="container mx-auto px-4 py-8 relative mt-20">
         <div className="bg-white rounded-lg shadow-xl overflow-hidden -mt-16 relative z-20">
           <div className="p-8">
-            <p className="text-indigo-950 text-xl tracking-wide leading-relaxed mb-6">{drive.description}</p>
+            <p className="text-indigo-950 text-xl tracking-wide leading-relaxed mb-6">{project.description}</p>
             <div className="flex flex-wrap gap-6 text-indigo-950">
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <Calendar className="mr-2 text-red-700" />
-                <span>{drive.date}</span>
+                <span>{project.date}</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="mr-2 text-red-700" />
-                <span>{drive.location}</span>
+                <span>{project.location}</span>
               </div>
               <div className="flex items-center">
                 <Users className="mr-2 text-red-700" />
-                <span>{drive.volunteers} Volunteers</span>
-              </div>
+                <span>{project.volunteers} Volunteers</span>
+              </div> */}
             </div>
           </div>
         </div>
 
         
-        <ImageGallery images={drive.images} />
+        <ImageGallery images={project.images} />
         </div>
       </div>
   );
 };
 
-export default DriveDetail;
+export default ProjectDetail;

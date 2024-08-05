@@ -3,7 +3,9 @@ import ProjectSlider from '../pages/Projects'
 
 const Work = () => {
   return (
-    <ProjectSlider />
+    <div className='relative'>
+    <ProjectSlider showBanner={false} />
+    </div>
     
   )
 }

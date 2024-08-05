@@ -9,7 +9,7 @@ const HelpOption = ({ icon, text, details }) => (
       <p className="text-indigo-950 font-raleway text-center font-semibold text-3xl">{text}</p>
     </div>
     <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 transition-all duration-1000 group-hover:opacity-100 group-hover:bottom-1/4">
-      <p className="text-red-500 font-raleway font-medium text-center text-2xl">{details}</p>
+      <p className="text-red-700 font-raleway font-medium text-center text-2xl">{details}</p>
     </div>
   </div>
 );
@@ -39,12 +39,14 @@ const HelpOptions = () => {
   ];
 
   return (
-    <div className='relative'>
-      <div className="bg-gray-100 p-10 font-raleway h-full" style={{ height: "650px" }}>
+    <div className="">
+      <div className="bg-gray-100 p-10 pt-20 md:pt-10 font-raleway h-full" style={{ height: "650px" }}>
         <h1 className="text-5xl font-bold text-center mb-8 text-indigo-950 my-5">
-          How can you help <span className="text-red-500 underline font-raleway">us</span> ?
+          
+          How can you help <span className="text-red-700 font-raleway">us</span> ?
         </h1>
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-20">
+    
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-20 md:shrink-0">
           {options.map((option, index) => (
             <HelpOption key={index} icon={option.icon} text={option.text} details={option.details} />
           ))}

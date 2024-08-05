@@ -48,7 +48,7 @@ const Header = () => {
       </div>
       <div className='bg-white p-2 flex items-center justify-center'>
         <div className='flex items-center justify-center'>
-          <img src='swat.svg' alt='Logo' className='h-56 w-auto mr-10 ml-10' />
+          <img src='/swat.svg' alt='Logo' className='h-56 w-auto mr-10 ml-10' />
           <span className='text-indigo-950 text-5xl font-extrabold font-raleway text-pretty tracking-wide'>
             Social Welfare & Trust IOBM
           </span>

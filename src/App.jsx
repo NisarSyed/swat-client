@@ -8,17 +8,22 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Header from './components/Header';
 import DriveDetail from './pages/DriveDetail';
-import EnhancedHeader from './components/EnhancedHeader';
+import ProjectDetail from './pages/ProjectDetail';
 import useDrives from './components/useDrives';
+import useProjects from './components/useProjects';
+import { MdProductionQuantityLimits } from 'react-icons/md';
 
 
 function App() {
 
   const {drives, getDriveById} = useDrives();
+  const {projects, getProjectById} = useProjects();
   
+
+
   return (
     <Router>
-      <div className='flex-col'>
+      <div className='relative'>
         <Header />
         <Navbar />
         <Routes>
@@ -26,7 +31,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/drives" element={<Drives drives={drives} />} />
           <Route path="/drives/:id" element={<DriveDetail getDriveById={getDriveById} />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects" element={<Projects projects={projects} showBanner={true} />} />
+          <Route path="/projects/:id" element={<ProjectDetail getProjectById={getProjectById} />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
