@@ -11,6 +11,7 @@ const banner = {
 };
 
 const TimelineItem = ({ year, title, description }) => (
+
   <div className="flex">
     <div className="flex flex-col items-center mr-4">
       <div className="w-px h-full bg-indigo-300"></div>
@@ -23,6 +24,7 @@ const TimelineItem = ({ year, title, description }) => (
       <p className="text-gray-700">{description}</p>
     </div>
   </div>
+  
 );
 
 const TestimonialCard = ({ quote, author }) => (
@@ -43,11 +45,11 @@ const About = () => {
             <img src="2024-04-07_17-58-36_UTC_7.jpg" alt="Our mission" className="rounded-lg shadow-xl" />
           </div>
           <div className="md:w-1/2 md:pl-12">
-            <h2 className="text-6xl font-bold text-indigo-950 mb-6">Our Mission</h2>
-            <p className="text-2xl leading-relaxed mb-6">
+            <h2 className="text-5xl font-bold text-indigo-950 mb-6">Our Mission</h2>
+            <p className="text-xl leading-relaxed mb-6">
               <strong>SWAT</strong> is dedicated to work for humanity; we work for the common good and general welfare of the people. Over time, we will initiate programs in health, counseling, education, relief, rehabilitation, natural disasters and income-oriented vocational training.
             </p>
-            <p className="text-2xl leading-relaxed mb-8">
+            <p className="text-xl leading-relaxed mb-8">
               We are committed to raising funds and awareness to improve the living conditions of those less privileged in our community. Our goal is to help them sustain themselves and build a better society for all.
             </p>
             <motion.button 
@@ -59,12 +61,12 @@ const About = () => {
             </motion.button>
           </div>
         </div>
-        {/* KPIs Section */}
+    
         <KPIs />
 
-        {/* Timeline Section */}
+   
         <div className="my-16">
-          <h2 className="text-5xl font-bold text-indigo-950 mb-8">Our Journey</h2>
+          <h2 className="text-5xl font-bold text-indigo-950 mb-12">Our Journey</h2>
           <div className="space-y-4">
             <TimelineItem year="2010" title="SWAT Founded" description="SWAT was established with a mission to serve humanity." />
             <TimelineItem year="2015" title="Expanded Operations" description="Launched programs in health and education across multiple regions." />

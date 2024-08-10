@@ -44,7 +44,7 @@ function Banner({ banner, text }) {
         <div className="absolute top-0 left-0 w-full h-full bg-indigo-950 bg-opacity-80 flex items-center justify-left bg-gradient-to-t from-black/80 via-black/0">
           <div className="text-center justify-items-center">
             <h1
-              className={`px-3 sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold font-raleway text-gray fade-in ${
+              className={`px-3 sm:text-3xl md:text-4xl lg:text-6xl text-white font-bold font-raleway text-gray fade-in ${
                 isVisible ? 'visible' : ''
               }`}
             >

@@ -22,7 +22,7 @@
     }
   
     .nav-link::after {
-      @apply content-[''] bg-red-700 h-[4px] w-[0%] left-6 -bottom-[5px] rounded-xl absolute duration-300 ;
+      @apply content-[''] bg-red-700 h-[2px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300 ;
     }
   
     .nav-link:hover::after {

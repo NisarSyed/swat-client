@@ -5,7 +5,7 @@ import Banner from '../components/Banner';
 import DrivesCard from '../components/DrivesCard';
 import { useNavigate } from 'react-router';
 
-const Drives = ({ drives }) => {
+const Drives = ({ drives, showBanner }) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredDrives, setFilteredDrives] = useState(drives);
@@ -21,11 +21,7 @@ const Drives = ({ drives }) => {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <Banner banner={{
-        id: 1,
-        src: 'JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg',
-        alt: 'Banner 1',
-      }} text="Drives" />
+      {showBanner && <Banner text="Drives" />}
       
       <div className="container mx-auto px-4 py-8 mt-5">
         <h2 className="text-5xl font-bold text-indigo-950 mb-4 font-raleway">Our Drives</h2>

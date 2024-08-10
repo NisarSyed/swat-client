@@ -37,7 +37,7 @@ const Projects = ({project, showBanner}) => {
 
       return (
         <>
-          <div className='relative mt-auto'>
+          <div className='mt-auto'>
             {showBanner && <Banner banner={banner} text="Projects" />}
             
             <div className={`font-raleway px-5 mt-10 mb-10 md:mb-10 ${showBanner ? 'text-left text-indigo-900 underline-custom' : 'text-center'}`}>
@@ -60,6 +60,7 @@ const Projects = ({project, showBanner}) => {
             </div>
           </div>
         </>
+        
       );
     }
 
