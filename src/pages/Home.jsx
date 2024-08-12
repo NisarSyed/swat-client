@@ -5,10 +5,19 @@ import "slick-carousel/slick/slick-theme.css";
 import HelpOptions from "../components/Help";
 import Work from "../components/Work";
 import { Calendar } from "lucide-react";
+import EventsSection from "../components/Event";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useProjects } from "../components/useProjects";
+import { useDrives } from "../components/useDrives";
 
 const Home = () => {
+
+  const { projects } = useProjects();
+  const { drives } = useDrives();
+
+
+
   const upcomingEvents = [
     { id: 1, date: "2024-08-15", title: "Annual Charity Gala", description: "Join us for an evening of giving and entertainment." },
     { id: 2, date: "2024-08-22", title: "Community Clean-up Drive", description: "Help us make our neighborhood beautiful!" },
@@ -38,6 +47,9 @@ const Home = () => {
     { id: 2, src: "public/RationDrive_24/2024-04-07_17-58-36_UTC_1.jpg", alt: "Banner 2" },
     { id: 3, src: "2024-04-14_16-53-03_UTC_2.jpg", alt: "Banner 3" },
   ];
+
+  console.log("Projects in Home component", projects);
+  console.log("Drives in Home component", drives);
 
   return (
     <div className="flex flex-col">
@@ -78,29 +90,10 @@ const Home = () => {
           <HelpOptions />
         </div>
         <div data-aos="fade-up">
-          <Work />
+          <Work projects={projects} drives={drives} />
         </div>
       </div>
-
-      <div className="bg-indigo-950 py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-5xl font-bold text-white mb-8 text-center font-raleway">Upcoming Events</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {upcomingEvents.map((event) => (
-              <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="bg-red-700 text-white p-4">
-                  <Calendar className="inline-block mr-2" size={24} />
-                  <span className="font-semibold">{new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-xl mb-2 text-indigo-950 font-raleway">{event.title}</h3>
-                  <p className="text-gray-700 font-raleway">{event.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <EventsSection upcomingEvents={upcomingEvents} />
     </div>
   );
 };

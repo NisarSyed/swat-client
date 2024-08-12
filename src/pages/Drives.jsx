@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, Share2 } from 'lucide-react';
 import Banner from '../components/Banner';
 import DrivesCard from '../components/DrivesCard';
 import { useNavigate } from 'react-router';
+import { useDrives } from '../components/useDrives.jsx';
 
-const Drives = ({ drives, showBanner }) => {
+const Drives = ({ showBanner }) => {
+
+  const { drives } = useDrives();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredDrives, setFilteredDrives] = useState(drives);
@@ -57,7 +60,7 @@ const Drives = ({ drives, showBanner }) => {
             <h3 className="text-2xl font-bold mb-2">Featured Drive: {filteredDrives[0].title}</h3>
             <p className="mb-4">{filteredDrives[0].description}</p>
             <button 
-              onClick={() => navigate(`/drives/${filteredDrives[0].id}`)}
+              onClick={() => navigate(`/drives/${filteredDrives[0]._id}`)}
               className="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300"
             >
               Learn More
@@ -78,7 +81,7 @@ const Drives = ({ drives, showBanner }) => {
                 title={drive.title}
                 description={drive.description}
                 image={drive.images[0]}
-                navigateTo={() => navigate(`/drives/${drive.id}`)}
+                navigateTo={() => navigate(`/drives/${drive._id}`)}
               />
             </motion.div>
           ))}

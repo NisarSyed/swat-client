@@ -6,39 +6,32 @@ import About from './pages/About';
 import Drives from './pages/Drives';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import Header from './components/Header';
 import Header2 from './components/Header2';
 import DriveDetail from './pages/DriveDetail';
 import ProjectDetail from './pages/ProjectDetail';
-import useDrives from './components/useDrives';
-import useProjects from './components/useProjects';
-import { MdProductionQuantityLimits } from 'react-icons/md';
-
+import { DrivesProvider } from './components/useDrives.jsx';
+import { ProjectsProvider } from './components/useProjects.jsx';
 
 function App() {
-
-  const {drives, getDriveById} = useDrives();
-  const {projects, getProjectById} = useProjects();
-  
-
-
   return (
-    <Router>
-      <div className='sm:flex-col'>
-        <Header2 />
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/drives" element={<Drives drives={drives} />} />
-          <Route path="/drives/:id" element={<DriveDetail getDriveById={getDriveById} />} />
-          <Route path="/projects" element={<Projects projects={projects} showBanner={true} />} />
-          <Route path="/projects/:id" element={<ProjectDetail getProjectById={getProjectById} />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <DrivesProvider>
+      <ProjectsProvider>
+        <Router>
+          <Header2 />
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/drives" element={<Drives />} />
+            <Route path="/drives/:id" element={<DriveDetail />} />
+            <Route path="/projects" element={<Projects showBanner={true} />} />
+            <Route path="/projects/:id" element={<ProjectDetail />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </ProjectsProvider>
+    </DrivesProvider>
   );
 }
 

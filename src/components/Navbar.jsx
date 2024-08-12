@@ -36,7 +36,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Mobile menu */}
-      <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
+      <div className={`${isMobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link to="/" className={mobileNavLinkClass} onClick={toggleMobileMenu}>Home</Link>
           <Link to="/about" className={mobileNavLinkClass} onClick={toggleMobileMenu}>About</Link>

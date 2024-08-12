@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Calendar, MapPin, Users, X } from 'lucide-react';
 import { useState } from 'react';
+import { useProjects } from '../components/useProjects';
 
 const ImageGallery = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -77,11 +78,13 @@ const ImageGallery = ({ images }) => {
     </div>
   );
 };
-const ProjectDetail = ({getProjectbyId}) => {
+const ProjectDetail = () => {
+
   const { id } = useParams();
 
-  const project = getProjectbyId(id);
-  console.log(project);
+  const { getProjectById } = useProjects();
+  const project = getProjectById(id);
+ 
 
   if (!project) {
     return <div>Project not found</div>;

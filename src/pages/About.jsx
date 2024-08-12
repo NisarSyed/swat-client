@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, Calendar, Award, Users } from 'lucide-react';
 import KPIs from '../components/KPIs';
 import Banner from '../components/Banner';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const banner = {
   id: 1,
@@ -35,16 +37,21 @@ const TestimonialCard = ({ quote, author }) => (
 );
 
 const About = () => {
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <div className="font-raleway relative">
       {/* Hero Section (unchanged) */}
-      <Banner banner={banner} text="About Us" />
-      <div className="container mx-auto px-4 py-16 w-full">
+      <Banner banner={banner} text="About Us" data-aos="fade-up" />
+      <div className="container mx-auto px-4 py-16 w-full" data-aos="fade-up">
         <div className="flex flex-col md:flex-row items-center mb-16 ">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <img src="2024-04-07_17-58-36_UTC_7.jpg" alt="Our mission" className="rounded-lg shadow-xl" />
           </div>
-          <div className="md:w-1/2 md:pl-12">
+          <div className="md:w-1/2 md:pl-12" >
             <h2 className="text-5xl font-bold text-indigo-950 mb-6">Our Mission</h2>
             <p className="text-xl leading-relaxed mb-6">
               <strong>SWAT</strong> is dedicated to work for humanity; we work for the common good and general welfare of the people. Over time, we will initiate programs in health, counseling, education, relief, rehabilitation, natural disasters and income-oriented vocational training.
@@ -62,21 +69,31 @@ const About = () => {
           </div>
         </div>
     
-        <KPIs />
+        <div className="my-16" data-aos="fade-in">
+        <KPIs  />
+        </div>
 
    
-        <div className="my-16">
+        <div className="my-16" data-aos="fade-out">
           <h2 className="text-5xl font-bold text-indigo-950 mb-12">Our Journey</h2>
           <div className="space-y-4">
+            <div data-aos="fade-up">
             <TimelineItem year="2010" title="SWAT Founded" description="SWAT was established with a mission to serve humanity." />
+            </div>
+            <div data-aos="fade-up">
             <TimelineItem year="2015" title="Expanded Operations" description="Launched programs in health and education across multiple regions." />
+            </div>
+            <div data-aos="fade-up">
             <TimelineItem year="2020" title="COVID-19 Response" description="Initiated emergency relief efforts during the global pandemic." />
+            </div>
+            <div data-aos="fade-up">
             <TimelineItem year="2023" title="Milestone Achievement" description="Reached over 100,000 beneficiaries across all our programs." />
+            </div>
           </div>
         </div>
 
         {/* Testimonials Section */}
-        <div className="my-16 bg-gray-100 py-12 px-4 rounded-lg">
+        <div className="my-16 bg-gray-100 py-12 px-4 rounded-lg" data-aos="fade-up">
           <h2 className="text-4xl font-bold text-indigo-900 mb-8 text-center">Voices of Impact</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <TestimonialCard 
@@ -91,7 +108,7 @@ const About = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center my-16">
+        <div className="text-center my-16" data-aos="fade-up">
           <h2 className="text-4xl font-bold text-indigo-900 mb-6">Join Us in Making a Difference</h2>
           <motion.button 
             whileHover={{ scale: 1.05 }}

@@ -1,8 +1,11 @@
 import React from 'react';
 import { ChevronUp, Users, Package, Calendar } from 'lucide-react';
+import { motion } from 'framer-motion';
+import aos from 'aos';
+import 'aos/dist/aos.css';
 
 const KPICard = ({ icon, title, value, increase }) => (
-  <div className="bg-indigo-950 text-white text-center p-6 rounded-lg font-raleway shadow-lg flex-1 min-w-[200px] mb-4 md:mb-0 md:mr-4 last:mr-0">
+  <div className="bg-indigo-950 text-white text-center p-6 rounded-lg font-raleway shadow-lg flex-1 min-w-[200px] mb-4 md:mb-0 md:mr-4 last:mr-0" data-aos="fade-up">
     <div className="flex items-center justify-center mb-4">
       <div className="p-2 bg-red-700 rounded-full">
         {icon}
@@ -22,7 +25,7 @@ const KPISection = () => {
 
   return (
     <section className="py-12 font-raleway">
-      <div className="container mx-auto">
+      <div className="container mx-auto" data-a0s="fade-up">
         <h2 className="text-5xl font-bold text-indigo-950 mb-10 text-left ">Our Impact</h2>
         <div className="flex flex-col md:flex-row justify-center items-stretch">
           {kpiData.map((kpi, index) => (

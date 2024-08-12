@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Calendar, MapPin, Users, X } from 'lucide-react';
 import { useState } from 'react';
+import { useDrives } from '../components/useDrives';
+
 
 const ImageGallery = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -77,10 +79,12 @@ const ImageGallery = ({ images }) => {
     </div>
   );
 };
-const DriveDetail = ({getDriveById}) => {
-  const { id } = useParams();
+const DriveDetail = () => {
 
+  const { id } = useParams();
+  const { getDriveById } = useDrives();
   const drive = getDriveById(id);
+
 
   if (!drive) {
     return <div>Drive not found</div>;
