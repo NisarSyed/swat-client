@@ -21,9 +21,9 @@ export default function EventsSection({ upcomingEvents }) {
   }, []);
 
   return (
-    <div id="event-section" className="bg-indigo-950 py-16 px-4 sm:px-6 lg:px-8 opacity-0 transform translate-y-10 transition-all duration-1000">
+    <div id="event-section" className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8 opacity-0 transform translate-y-10 transition-all duration-1000">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-white mb-8 text-center font-raleway animate-fadeIn">Upcoming Events</h2>
+        <h2 className="text-5xl font-semibold text-indigo-950 mb-10 text-center font-raleway animate-fadeIn">Upcoming Events</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {upcomingEvents.map((event) => (
             <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-xl">

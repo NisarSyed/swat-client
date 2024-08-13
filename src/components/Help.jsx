@@ -3,7 +3,7 @@ import { Hand, Coins, Book, Heart } from 'lucide-react'
 
 const HelpOption = ({ icon, text, details }) => (
 
-  <div className="group relative bg-white rounded-lg shadow-md overflow-hidden h-auto min-h-[250px] duration-300 transition-shadow hover:shadow-xl hover:shadow-black/30 ">
+  <div className="group relative bg-white rounded-lg shadow-md overflow-hidden h-auto min-h-[250px] duration-300 transition-shadow hover:shadow-xl hover:shadow-black/30 p-6">
     <div className="py-6 flex flex-col items-center justify-center space-y-4 transition-opacity duration-300 opacity-100 group-hover:opacity-0">
       {icon}
       <p className="text-indigo-950 font-raleway text-center font-semibold text-lg sm:text-xl md:text-2xl lg:text-2xl p-5">{text}</p>
@@ -40,8 +40,8 @@ const HelpOptions = () => {
   ];
 
   return (
-    <div className="bg-gray-100 sm:p-6 md:p-8 lg:p-10 font-raleway">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-6 md:mb-8 text-indigo-950">
+    <div className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8 font-raleway">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center mb-4 sm:mb-6 md:mb-8 text-indigo-950">
         How can you help <span className="text-red-700 font-raleway">us</span>?
       </h1>
     

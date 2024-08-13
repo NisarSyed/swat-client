@@ -55,21 +55,21 @@ const Header = () => {
         </div>
       </div>
 
-      <div className='bg-white p-2 flex items-center justify-center'>
-        <div className='flex items-center justify-center'>
-          <img src='/swat.svg' alt='Logo' className='h-56 w-auto mr-10 ml-10' />
+      <div className='bg-white p-4'>
+        <div className='flex md:flex-row flex-col items-center justify-evenly'>
+          <img src='/swat.svg' alt='Logo' className='h-56 w-auto ' />
           <span className='text-indigo-950 md:text-4xl font-extrabold font-raleway text-pretty tracking-wide'>
             Social Welfare & Trust IOBM
           </span>
-        </div>
-        <div className='ml-40'>
           <button
-            className='bg-indigo-950 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg text-2xl font-raleway shadow-xl antialiased'
+            className='bg-indigo-950 hover:bg-red-700 text-white font-bold sm:py-4 sm:px-8 rounded-lg md:text-2xl font-raleway shadow-xl antialiased text-xl px-4 py-2'
             onClick={handleClick}
           >
-            Donate Now
-          </button>
+          Donate Now
+          </button> 
         </div>
+        
+        
       </div>
       
       {isOpen && (

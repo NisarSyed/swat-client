@@ -27,14 +27,14 @@ const footerData = {
 };
 
 const EventItem = ({ item }) => (
-  <li className="flex items-center">
+  <li className="flex items-center font-raleway">
     <span className="text-indigo-500 mr-2"><ChevronRight/></span>
     <a href={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</a>
   </li>
 );
 
 const OurWorkItem = ({ item }) => (
-  <li className="flex items-center mb-1">
+  <li className="flex items-center">
     <span className="text-indigo-500 mr-2 mt-1"><ChevronRight/></span>
     <a href={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</a>
   </li>
@@ -58,7 +58,7 @@ const Footer = () => {
   return (
     <div className='relative '>
     <footer className="bg-indigo-950 text-white p-8 font-raleway">
-      <div className="flex justify-between mx-auto max-w-auto px-10">
+      <div className="flex justify-evenly mx-auto max-w-auto px-10">
         <div className="flex flex-col space-y-4">
           <h2 className="text-2xl font-bold mb-4 text-indigo-400 underline font-serif">Events</h2>
           <ul>

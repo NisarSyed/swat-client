@@ -9,7 +9,7 @@ const Work = ({ projects, drives }) => {
   return (
     <section className="py-12 font-raleway">
       <div className="container mx-auto" data-aos="fade-up">
-        <h2 className="text-5xl font-bold text-indigo-950 mb-10 text-left ">Our Work</h2>
+        <h2 className="text-5xl font-semibold text-indigo-950 mb-10 text-center font-raleway ">Our Work</h2>
         <div className = "grid grid-cols-1 md:grid-cols-3 gap-4">
 
           {projects.map((project) => (

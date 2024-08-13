@@ -34,7 +34,7 @@ function Banner({ banner, text }) {
           }
         `}
       </style>
-      <div className="">
+
         <div key={banner.id} className="relative md:h-96">
           <img
             src={banner.src}
@@ -53,7 +53,7 @@ function Banner({ banner, text }) {
           </div>
         </div>
       </div>
-    </div>
+    
     </>
     );
   }

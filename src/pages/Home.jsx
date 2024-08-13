@@ -85,10 +85,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="w-full px-4 sm:px-6 lg:px-8 mt-8">
-        <div data-aos="fade-up">
+      <div className="w-full">
           <HelpOptions />
-        </div>
         <div data-aos="fade-up">
           <Work projects={projects} drives={drives} />
         </div>
