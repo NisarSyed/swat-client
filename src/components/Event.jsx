@@ -1,44 +1,65 @@
-import { useEffect } from "react";
-import { Calendar } from "lucide-react";
+import React from 'react';
+import { Calendar, Clock, MapPin, Users } from 'lucide-react';
 
-export default function EventsSection({ upcomingEvents }) {
-    
-  useEffect(() => {
-    const handleScroll = () => {
-      const eventSection = document.querySelector("#event-section");
-      const position = eventSection.getBoundingClientRect().top + window.scrollY;
 
-      if (window.scrollY + window.innerHeight >= position) {
-        eventSection.classList.add("animate-slideIn");
-      }
-    };
 
-    window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
+const PastEventDetailPage = ({ event }) => {
   return (
-    <div id="event-section" className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8 opacity-0 transform translate-y-10 transition-all duration-1000">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-semibold text-indigo-950 mb-10 text-center font-raleway animate-fadeIn">Upcoming Events</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {upcomingEvents.map((event) => (
-            <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
-              <div className="bg-red-700 text-white p-4">
-                <Calendar className="inline-block mr-2 transition-transform duration-500 hover:rotate-12" size={24} />
-                <span className="font-semibold">{new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-2 text-indigo-950 font-raleway">{event.title}</h3>
-                <p className="text-gray-700 font-raleway">{event.description}</p>
-              </div>
+    <div className="bg-indigo-950 min-h-screen text-white font-raleway">
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold mb-6">{event.title}</h1>
+        
+        <div className="bg-indigo-900 rounded-lg shadow-lg p-6 mb-8">
+          <img src={event.image || "/api/placeholder/800/400"} alt={event.title} className="w-full h-64 object-cover rounded-lg mb-4" />
+          
+          <div className="flex flex-wrap items-center text-sm mb-4">
+            <div className="flex items-center mr-6 mb-2">
+              <Calendar className="mr-2 text-red-700" size={18} />
+              <span>{event.date}</span>
             </div>
-          ))}
+            <div className="flex items-center mr-6 mb-2">
+              <Clock className="mr-2 text-red-700" size={18} />
+              <span>{event.time}</span>
+            </div>
+            <div className="flex items-center mr-6 mb-2">
+              <MapPin className="mr-2 text-red-700" size={18} />
+              <span>{event.location}</span>
+            </div>
+            <div className="flex items-center mb-2">
+              <Users className="mr-2 text-red-700" size={18} />
+              <span>{event.attendees} attendees</span>
+            </div>
+          </div>
+          
+          <p className="text-gray-300 mb-6">{event.description}</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            {event.highlights.map((highlight, index) => (
+              <div key={index} className="bg-indigo-800 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">{highlight.title}</h3>
+                <p className="text-sm text-gray-300">{highlight.description}</p>
+              </div>
+            ))}
+          </div>
+          
+          <button className="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+            View Gallery
+          </button>
+        </div>
+        
+        <div className="bg-indigo-900 rounded-lg shadow-lg p-6">
+          <h2 className="text-2xl font-semibold mb-4">Event Outcomes</h2>
+          <ul className="list-disc list-inside text-gray-300">
+            {event.outcomes.map((outcome, index) => (
+              <li key={index}>{outcome}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default PastEventDetailPage;

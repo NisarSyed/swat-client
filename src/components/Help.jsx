@@ -1,5 +1,6 @@
 import React from 'react'
 import { Hand, Coins, Book, Heart } from 'lucide-react'
+import aos from 'aos'
 
 const HelpOption = ({ icon, text, details }) => (
 

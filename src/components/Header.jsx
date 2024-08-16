@@ -13,6 +13,7 @@ const bankDetails = {
     
 
 const Header = () => {
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {

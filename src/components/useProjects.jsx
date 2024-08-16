@@ -16,7 +16,7 @@ export const ProjectsProvider = ({ children }) => {
       }
     };
     fetchProjects();
-  }, []);
+  }, [projects]);
 
   const getProjectById = (id) => {
     const project = projects.find((project) => project._id === id);

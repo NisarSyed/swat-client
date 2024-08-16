@@ -10,12 +10,49 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useProjects } from "../components/useProjects";
 import { useDrives } from "../components/useDrives";
+import axios from "axios";
+import Appeals from "../components/Appeals";
 
 const Home = () => {
 
   const { projects } = useProjects();
   const { drives } = useDrives();
 
+  const [banners, setBanners] = useState([]);
+  const event = {
+    title: "Event Title",
+    date: "2024-08-15",
+    time: "6:00 PM",
+    location: "123 Main St, Springfield, IL",
+    attendees: 150,
+    description: "Join us for an evening of giving and entertainment.",
+    image: "/images/event.jpg",
+    highlights: [
+      { title: "Special Guests", description: "Meet local celebrities and influencers." },
+      { title: "Live Music", description: "Enjoy performances by local artists." },
+      { title: "Silent Auction", description: "Bid on exclusive items and experiences." },
+    ],
+    outcomes: [
+      "Raised $10,000 for charity",
+      "Increased awareness of local causes",
+      "Engaged 150 volunteers",
+    ],
+  };
+  
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/banners");
+        setBanners(response.data);
+      } catch (error) {
+        console.error("Error fetching banners:", error);
+      }
+    };
+    fetchBanners();
+  }, [banners]);
+
+  console.log("Banners in Home component", banners);
 
 
   const upcomingEvents = [
@@ -42,11 +79,6 @@ const Home = () => {
     cssEase: "linear",
   };
 
-  const banners = [
-    { id: 1, src: "public/BloodDonation_23/2023-11-16_16-05-09_UTC_1.jpg", alt: "Banner 1" },
-    { id: 2, src: "public/RationDrive_24/2024-04-07_17-58-36_UTC_1.jpg", alt: "Banner 2" },
-    { id: 3, src: "2024-04-14_16-53-03_UTC_2.jpg", alt: "Banner 3" },
-  ];
 
   console.log("Projects in Home component", projects);
   console.log("Drives in Home component", drives);
@@ -56,10 +88,9 @@ const Home = () => {
       <div className="relative h-screen">
         <Slider {...settings}>
           {banners.map((banner) => (
-            <div key={banner.id} className="relative h-screen">
+            <div key={banner._id} className="relative h-screen">
               <img
-                src={banner.src}
-                alt={banner.alt}
+                src={banner.image}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -85,13 +116,15 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full" data-aos="fade-up">
           <HelpOptions />
+        </div>
         <div data-aos="fade-up">
           <Work projects={projects} drives={drives} />
         </div>
-      </div>
-      <EventsSection upcomingEvents={upcomingEvents} />
+        <div data-aos="fade-up">
+          <Appeals />
+        </div>
     </div>
   );
 };

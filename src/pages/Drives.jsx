@@ -6,7 +6,15 @@ import DrivesCard from '../components/DrivesCard';
 import { useNavigate } from 'react-router';
 import { useDrives } from '../components/useDrives.jsx';
 
+
 const Drives = ({ showBanner }) => {
+
+
+  const banner = {
+    id: 1,
+    src: 'JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg',
+    alt: 'Banner 1',
+  };
 
   const { drives } = useDrives();
   const navigate = useNavigate();
@@ -24,7 +32,7 @@ const Drives = ({ showBanner }) => {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      {showBanner && <Banner text="Drives" />}
+      {showBanner && <Banner banner={banner} text="Drives"/>}
       
       <div className="container mx-auto px-4 py-8 mt-5">
         <h2 className="text-5xl font-bold text-indigo-950 mb-4 font-raleway">Our Drives</h2>
@@ -61,7 +69,7 @@ const Drives = ({ showBanner }) => {
             <p className="mb-4">{filteredDrives[0].description}</p>
             <button 
               onClick={() => navigate(`/drives/${filteredDrives[0]._id}`)}
-              className="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300"
+              className="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300"
             >
               Learn More
             </button>

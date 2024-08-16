@@ -1,102 +1,122 @@
 import React from 'react';
+import { FaMapMarkerAlt, FaPhone, FaClock, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import Banner from '../components/Banner';
 
-
-const handleSubmit = () =>
-{
-  console.log("Form submitted");
-
-}
-// Data object arrays
-const sidebarLinks = [
-  { href: "/about", text: "About Us" },
-  { href: "/contact", text: "Contact us" },
-];
-
-const officeInfo = [
-  {
-    name: "Pakistan Office",
-    details: [
-      { icon: "fas fa-map-marker-alt", text: "Plot # 84, Korangi Creek, Karachi,Pakistan, 75190" },
-      { icon: "fas fa-phone", text: "92-21-3663-1330" },
-      { icon: "far fa-clock", text: "Mon-Sat 9am - 5pm" },
-    ],
-  },
-];
-
-const formFields = [
-  { name: "name", type: "text", placeholder: "Name" },
-  { name: "email", type: "email", placeholder: "Email" },
-  { name: "phone", type: "tel", placeholder: "Phone" },
-  { name: "subject", type: "text", placeholder: "Subject" },
-];
-
-const banner =
-  { id: 3, src: "2024-04-07_17-58-36_UTC_7.jpg", alt: "Banner 3" }
-
 const Contact = () => {
-  return (
-    <div className="bg-white font-raleway text-xl">
-      
-      <Banner banner={banner} text="Contact Us" />
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-8">
+
+
+  const banner = {
+    id: 1,
+    src: 'JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg',
+    alt: 'Banner 1',
+  };
+
+
+  const contactInfo = 
+    {
+      address: 'Plot # 84, Korangi Creek, Karachi, Pakistan, 75190',
+      phone: '92-21-3663-1330',
+      hours: 'Mon-Sat 9am - 5pm',
+      email: 'info@swat.com',
+    }
+  ;
+
+
+
+  return (
+
+    <div>
+    <Banner text="Contact Us" banner={banner} />
+    <div className="bg-gray-100 font-raleway text-gray-800">
+      <div className="container mx-auto px-4 py-12">
+        
         <div className="flex flex-wrap -mx-4">
-          {/* Left Sidebar */}
+          {/* Sidebar */}
           <div className="w-full md:w-1/4 px-4 mb-8">
-            <div className="bg-indigo-950 rounded-t-lg">
-              <h2 className="text-white text-xl font-semibold p-4">About us</h2>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <h2 className="bg-indigo-950 text-white text-xl font-semibold p-4 text-center">About us</h2>
+              <ul>
+                {['About Us'].map((link, index) => (
+                  <motion.li 
+                    key={index}
+                    whileHover={{ backgroundColor: '#f3f4f6' }}
+                    className="p-4 border-b last:border-b-0"
+                  >
+                    <a href="/about" className="flex items-center">
+                      <span>{link}</span>
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
             </div>
-            <ul className="bg-gray-100 rounded-b-lg">
-              {sidebarLinks.map((link, index) => (
-                <li key={index} className="p-4 hover:bg-gray-200">
-                  <a href={link.href}>{link.text}</a>
-                </li>
-              ))}
-            </ul>
           </div>
 
-          {/* Main Content Area */}
+          {/* Main Content */}
           <div className="w-full md:w-3/4 px-4">
-            <div className="flex flex-wrap -mx-4">
-              {officeInfo.map((office, index) => (
-                <div key={index} className="w-full md:w-1/2 px-4 mb-8">
-                  <h2 className="text-2xl font-semibold mb-4">{office.name}</h2>
-                  {office.details.map((detail, detailIndex) => (
-                    <p key={detailIndex} className="mb-2">
-                      <i className={`${detail.icon} mr-2`}></i>{detail.text}
-                    </p>
-                  ))}
-                </div>
-              ))}
+            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+
+              <div className="flex items-center mb-4">
+                <FaMapMarkerAlt className="text-indigo-900 mr-4 text-xl" />
+                <p>{contactInfo.address}</p>
+              </div>
+              <div className="flex items-center mb-4">
+                <FaPhone className="text-indigo-900 mr-4 text-xl" />
+                <p>{contactInfo.phone}</p>
+              </div>
+              <div className="flex items-center mb-4">
+                <FaClock className="text-indigo-900 mr-4 text-xl" />
+                <p>{contactInfo.hours}</p>
+              </div>
+              <div className="flex items-center">
+                <FaEnvelope className="text-indigo-900 mr-4 text-xl" />
+                <p>{contactInfo.email}</p>
+              </div>
             </div>
 
-            {/* Contact Form */}
-            <form className="bg-gray-100 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold mb-4">Contact us</h2>
-              <div className="flex flex-wrap -mx-2 mb-4">
-                {formFields.map((field, index) => (
-                  <div key={index} className="w-full md:w-1/2 px-2 mb-4">
-                    <input
-                      type={field.type}
-                      placeholder={field.placeholder}
-                      className="w-full p-2 rounded border"
-                    />
-                  </div>
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h2 className="text-2xl font-semibold mb-4">Connect With Us</h2>
+              <p className="mb-4">Stay updated with our latest news and offers by following us on social media:</p>
+              <div className="flex space-x-4">
+                {[
+                  { Icon: FaFacebookF, color: 'bg-blue-600', link: 'https://facebook.com/swatiobm' },
+                  { Icon: FaTwitter, color: 'bg-blue-400', link: 'https://twitter.com/example' },
+                  { Icon: FaInstagram, color: 'bg-pink-600', link: 'https://instagram.com/swat.iobm/' },
+                  { Icon: FaLinkedinIn, color: 'bg-blue-700', link: 'https://linkedin.com/company/example' }
+                ].map(({ Icon, color, link }, index) => (
+                  <motion.a
+                    key={index}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className={`${color} text-white p-2 rounded-xl`}
+                  >
+                    <Icon className="text-xl" />
+                  </motion.a>
                 ))}
               </div>
-              <div className="mb-4">
-                <textarea placeholder="Message" rows="5" className="w-full p-2 rounded border"></textarea>
-              </div>
-              <button type="submit" className="bg-indigo-950 text-white px-4 py-2 rounded hover:bg-indigo-800" onClick={handleSubmit}>
-                Submit
-              </button>
-            </form>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-2xl font-semibold mb-4">Visit Us</h2>
+          <div className="aspect-w-16 aspect-h-9">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.2807100068965!2d67.13062661744384!3d24.858926299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338b8c5b11df5%3A0x1a98d88d5b743ef3!2sKorangi%20Creek%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1628506744752!5m2!1sen!2s" 
+              width="100%" 
+              height="450" 
+              style={{border:0}} 
+              allowFullScreen="" 
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </div>
     </div>
+  </div>
   );
 };
 
