@@ -78,3 +78,6 @@
   transform: translateX(-50%); /* Center the underline */
 }
   
+.slick-slider {
+  display: none;
+}

@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useNavigate } from "react-router";
-import ProjectCard from "../components/ProjectsCard";
+import EventCard from "../components/EventsCard";
 import Banner from "../components/Banner";
 import axios from "axios";
 import { motion } from "framer-motion";
 import aos from "aos";
-import { useProjects } from "../utils/useProjects";
+import { useEvents } from "../utils/useEvents";
 
 const banner = {
   id: 1,
@@ -15,15 +15,15 @@ const banner = {
   alt: "Banner 1",
 };
 
-const Projects = ({ showBanner }) => {
-  const { projects } = useProjects();
+const Events = ({ showBanner }) => {
+  const { events } = useEvents();
 
   const navigate = useNavigate();
 
   return (
     <>
       <div className="mt-auto">
-        {showBanner && <Banner banner={banner} text="Projects" />}
+        {showBanner && <Banner banner={banner} text="Events" />}
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -38,19 +38,19 @@ const Projects = ({ showBanner }) => {
             }`}
           >
             <h2 className="text-5xl font-bold text-pretty antialiased accent-slate-200 text-indigo-950 px-32 font-raleway mb-5">
-              Our <span>Projects</span>
+              Our <span>Events</span>
             </h2>
           </div>
         </motion.div>
 
         <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5 p-2 px-20 min-w-40 mb-10">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project._id}
-              title={project.title}
-              description={project.shortDescription} // Changed from description to shortDescription
-              image={project.images[0]} // This is correct as is
-              navigateTo={() => navigate(`/projects/${project._id}`)}
+          {events.map((event) => (
+            <EventCard
+              key={event._id}
+              title={event.title}
+              description={event.description} // Changed from description to shortDescription
+              image={event.images[0]} // This is correct as is
+              navigateTo={() => navigate(`/events/${event._id}`)}
             />
           ))}
         </div>
@@ -59,4 +59,4 @@ const Projects = ({ showBanner }) => {
   );
 };
 
-export default Projects;
+export default Events;
