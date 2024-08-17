@@ -37,7 +37,7 @@ const Projects = ({ showBanner }) => {
                 : "text-center"
             }`}
           >
-            <h2 className="text-5xl font-bold text-pretty antialiased accent-slate-200 text-indigo-950 px-32 font-raleway mb-5">
+            <h2 className="text-5xl font-semibold text-pretty antialiased accent-slate-200 text-indigo-950 px-16 font-raleway mb-5">
               Our <span>Projects</span>
             </h2>
           </div>

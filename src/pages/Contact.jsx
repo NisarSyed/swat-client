@@ -23,10 +23,7 @@ const Contact = () => {
     }
   ;
 
-
-
   return (
-
     <div>
     <Banner text="Contact Us" banner={banner} />
     <div className="bg-gray-100 font-raleway text-gray-800">
@@ -56,7 +53,6 @@ const Contact = () => {
           {/* Main Content */}
           <div className="w-full md:w-3/4 px-4">
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-
               <div className="flex items-center mb-4">
                 <FaMapMarkerAlt className="text-indigo-900 mr-4 text-xl" />
                 <p>{contactInfo.address}</p>
@@ -74,7 +70,6 @@ const Contact = () => {
                 <p>{contactInfo.email}</p>
               </div>
             </div>
-
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-2xl font-semibold mb-4">Connect With Us</h2>
               <p className="mb-4">Stay updated with our latest news and offers by following us on social media:</p>
@@ -105,7 +100,7 @@ const Contact = () => {
           <h2 className="text-2xl font-semibold mb-4">Visit Us</h2>
           <div className="aspect-w-16 aspect-h-9">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.2807100068965!2d67.13062661744384!3d24.858926299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338b8c5b11df5%3A0x1a98d88d5b743ef3!2sKorangi%20Creek%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1628506744752!5m2!1sen!2s" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2763.832910591034!2d67.11586507815315!3d24.81275254440822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33b7680aed395%3A0x21d3c8026afe14ce!2sInstitute%20of%20Business%20Management!5e0!3m2!1sen!2s!4v1723896896489!5m2!1sen!2s" 
               width="100%" 
               height="450" 
               style={{border:0}} 

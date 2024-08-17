@@ -35,7 +35,7 @@ const Drives = ({ showBanner }) => {
       {showBanner && <Banner banner={banner} text="Drives" />}
 
       <div className="container mx-auto px-4 py-8 mt-5">
-        <h2 className="text-5xl font-bold text-indigo-950 mb-4 font-raleway">
+        <h2 className="text-5xl font-semibold text-indigo-950 mb-4 font-raleway">
           Our Drives
         </h2>
         <p className="text-xl text-indigo-900 mb-8">

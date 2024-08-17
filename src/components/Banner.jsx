@@ -31,13 +31,14 @@ function Banner({ banner, text }) {
             background-color: #EF4444;
             margin:  0 0 0 auto;
             padding: 2px;
+            border-radius: 10px;
           }
         `}
       </style>
 
-        <div key={banner.id} className="relative md:h-96">
+        <div key={banner._id} className="relative md:h-96">
           <img
-            src={banner.src}
+            src={banner.image}
             alt={banner.alt}
             className="w-full h-full object-cover"
           />
