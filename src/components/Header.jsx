@@ -62,7 +62,7 @@ const Header = () => {
       <div className='bg-white p-4'>
         <div className='flex md:flex-row flex-col items-center justify-evenly px-20'>
           <img src='/swat.svg' alt='Logo' className='h-56 w-auto ' />
-          <span className='text-indigo-950 md:text-4xl font-extrabold font-raleway text-pretty tracking-wide'>
+          <span className='text-indigo-950 md:text-4xl font-extrabold font-raleway tracking-wide text-center'>
             Social Welfare & Trust IOBM
           </span>
           <button

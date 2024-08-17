@@ -6,29 +6,6 @@ import { useDrives } from '../utils/useDrives';
 import { useEvents } from '../utils/useEvents';
 
 
-const footerData = {
-  events: [
-    { title: 'Earthquake Relief Effort Gilgit Baltistan', url: '#' },
-  ],
-  ourWork: [
-    { title: 'CLEAN DRINKING WATER PROJECT', url: '#' },
-    { title: 'AFTER SCHOOL & TUITION CENTER - BALDIA TOWN', url: '#' },
-    { title: 'HEALTH CARE PROJECT', url: '#' },
-    { title: 'HIGHER EDUCATION SUPPORT PROGRAM', url: '#' },
-  ],
-  getInvolved: [
-    { title: 'Home', url: '/' },
-    { title: 'About Us', url: '/about' },
-    { title: 'Our Projects', url: '/projects' },
-    { title: 'Drives', url: '/drives' },
-    { title: 'Contact us', url: '/contact' },
-  ],
-  contact: {
-    address: 'SWAT Welfare Society IOBM',
-    email: 'info@swat.org',
-    phone: '0092 333 3024043',
-  },
-};
 
 const EventItem = ({ item }) => (
   <li className="flex items-center">
@@ -59,11 +36,36 @@ const ContactInfo = ({ icon, text }) => (
 );
 
 const Footer = () => {
+
+  const { projects } = useProjects();
+  const { drives } = useDrives();
+  const { events } = useEvents();
+  console.log(events);
+
+  const footerData = {
+    events: events.map(event => ({ title: event.title, url: `/events/${event._id}` })),
+    ourWork: drives.map(drive => ({ title: drive.title, url: `/drives/${drive._id}` })),
+    getInvolved: [
+      { title: 'Home', url: '/' },
+      { title: 'About Us', url: '/about' },
+      { title: 'Our Projects', url: '/projects' },
+      { title: 'Drives', url: '/drives' },
+      { title: 'Contact us', url: '/contact' },
+    ],
+    contact: {
+      address: 'SWAT Welfare Society IOBM',
+      email: 'info@swat.org',
+      phone: '0092 333 3024043',
+    },
+  };
+
+
+
   return (
     <div className='relative '>
     <footer className="bg-indigo-950 text-white p-8 font-raleway">
       <div className="flex md:flex-row flex-col justify-evenly mx-auto max-w-auto px-2">
-        <div className="flex flex-col space-y-4 ml-2 sm:mb-0 mb-10">
+        <div className="flex flex-col space-y-4 ml-2 sm:mb-0 mb-10 tracking-wide">
           <h2 className="text-2xl flex-col font-bold mb-4 text-indigo-400">Events</h2>
           <ul>
             {footerData.events.map((item, index) => (
@@ -90,7 +92,7 @@ const Footer = () => {
           </ul>
         </div>
         
-        <div className="flex flex-col space-y-4 ml-6 md:mb-0 mb-10">
+        <div className="flex flex-col space-y-4 sm:ml-6 ml-0 md:mb-0 mb-10">
           <h2 className="text-2xl font-bold mb-4 text-indigo-400">Contact</h2>
           <ContactInfo icon={<MapPinIcon className='pr-1 mb-1'/>} text={`Address: ${footerData.contact.address}`} />
           <ContactInfo icon={<Mail className='pr-1 mb-1'/>} text={`Email: ${footerData.contact.email}`} />
