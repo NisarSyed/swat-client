@@ -1,43 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Search, Filter, Share2 } from 'lucide-react';
-import Banner from '../components/Banner';
-import DrivesCard from '../components/DrivesCard';
-import { useNavigate } from 'react-router';
-import { useDrives } from '../components/useDrives.jsx';
-
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Search, Filter, Share2 } from "lucide-react";
+import Banner from "../components/Banner";
+import DrivesCard from "../components/DrivesCard";
+import { useNavigate } from "react-router";
+import { useDrives } from "../utils/useDrives.jsx";
 
 const Drives = ({ showBanner }) => {
-
-
   const banner = {
     id: 1,
-    src: 'JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg',
-    alt: 'Banner 1',
+    src: "JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg",
+    alt: "Banner 1",
   };
 
   const { drives } = useDrives();
   const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [filteredDrives, setFilteredDrives] = useState(drives);
 
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-    setFilteredDrives(drives.filter(drive => 
-      drive.title.toLowerCase().includes(term) || 
-      drive.description.toLowerCase().includes(term)
-    ));
+    setFilteredDrives(
+      drives.filter(
+        (drive) =>
+          drive.title.toLowerCase().includes(term) ||
+          drive.description.toLowerCase().includes(term)
+      )
+    );
   };
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      {showBanner && <Banner banner={banner} text="Drives"/>}
-      
+      {showBanner && <Banner banner={banner} text="Drives" />}
+
       <div className="container mx-auto px-4 py-8 mt-5">
-        <h2 className="text-5xl font-semibold text-indigo-950 mb-4 font-raleway">Our Drives</h2>
+        <h2 className="text-5xl font-bold text-indigo-950 mb-4 font-raleway">
+          Our Drives
+        </h2>
         <p className="text-xl text-indigo-900 mb-8">
-          Join us in making a difference. Our drives are the heart of our mission to support and uplift our community.
+          Join us in making a difference. Our drives are the heart of our
+          mission to support and uplift our community.
         </p>
 
         {/* Search and filter section */}
@@ -65,9 +68,11 @@ const Drives = ({ showBanner }) => {
             transition={{ duration: 0.5 }}
             className="bg-gradient-to-r from-indigo-950 to-indigo-800 rounded-lg p-6 mb-8 text-white"
           >
-            <h3 className="text-2xl font-bold mb-2">Featured Drive: {filteredDrives[0].title}</h3>
+            <h3 className="text-2xl font-bold mb-2">
+              Featured Drive: {filteredDrives[0].title}
+            </h3>
             <p className="mb-4">{filteredDrives[0].description}</p>
-            <button 
+            <button
               onClick={() => navigate(`/drives/${filteredDrives[0]._id}`)}
               className="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300"
             >

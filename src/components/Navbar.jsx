@@ -5,8 +5,10 @@ import { FaBars, FaTimes } from "react-icons/fa";
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navLinkClass = "nav-link text-white rounded-md text-base md:text-lg lg:text-xl font-raleway font-semibold tracking-wider";
-  const mobileNavLinkClass = "block py-2 px-4 text-white hover:bg-indigo-800 text-lg font-raleway font-bold tracking-wider";
+  const navLinkClass =
+    "nav-link text-white rounded-md text-base md:text-lg lg:text-xl font-raleway font-bold tracking-wider";
+  const mobileNavLinkClass =
+    "block py-2 px-4 text-white hover:bg-indigo-800 text-lg font-raleway font-bold tracking-wider";
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -36,25 +38,74 @@ const Navbar = () => {
         </button>
 
         <div className="hidden md:flex md:justify-center mx-auto">
-          <div className="flex lg:space-x-20 md:space-x-10">
-            <Link to="/" className={navLinkClass}>Home</Link>
-            <Link to="/about" className={navLinkClass}>About</Link>
-            <Link to="/drives" className={navLinkClass}>Drives</Link>
-            <Link to="/projects" className={navLinkClass}>Projects</Link>
-            <Link to="/contact" className={navLinkClass}>Contact</Link>
-            <Link to="/events" className={navLinkClass}>Events</Link>
+          <div className="flex lg:space-x-20 md: space-x-10">
+            <Link to="/" className={navLinkClass}>
+              Home
+            </Link>
+            <Link to="/about" className={navLinkClass}>
+              About
+            </Link>
+            <Link to="/drives" className={navLinkClass}>
+              Drives
+            </Link>
+            <Link to="/projects" className={navLinkClass}>
+              Projects
+            </Link>
+            <Link to="/events" className={navLinkClass}>
+              Events
+            </Link>
+            <Link to="/contact" className={navLinkClass}>
+              Contact
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Mobile menu */}
-      <div className={`${isMobileMenuOpen ? 'block' : 'hidden'}`}>
+      <div className={`${isMobileMenuOpen ? "block" : "hidden"}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link to="/" className={mobileNavLinkClass} onClick={toggleMobileMenu}>Home</Link>
-          <Link to="/about" className={mobileNavLinkClass} onClick={toggleMobileMenu}>About</Link>
-          <Link to="/drives" className={mobileNavLinkClass} onClick={toggleMobileMenu}>Drives</Link>
-          <Link to="/projects" className={mobileNavLinkClass} onClick={toggleMobileMenu}>Projects</Link>
-          <Link to="/contact" className={mobileNavLinkClass} onClick={toggleMobileMenu}>Contact</Link>
+          <Link
+            to="/"
+            className={mobileNavLinkClass}
+            onClick={toggleMobileMenu}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className={mobileNavLinkClass}
+            onClick={toggleMobileMenu}
+          >
+            About
+          </Link>
+          <Link
+            to="/drives"
+            className={mobileNavLinkClass}
+            onClick={toggleMobileMenu}
+          >
+            Drives
+          </Link>
+          <Link
+            to="/projects"
+            className={mobileNavLinkClass}
+            onClick={toggleMobileMenu}
+          >
+            Projects
+          </Link>
+          <Link
+            to="/events"
+            className={mobileNavLinkClass}
+            onClick={toggleMobileMenu}
+          >
+            Events
+          </Link>
+          <Link
+            to="/contact"
+            className={mobileNavLinkClass}
+            onClick={toggleMobileMenu}
+          >
+            Contact
+          </Link>
         </div>
       </div>
     </nav>
