@@ -1,38 +1,52 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navLinkClass = "nav-link text-white rounded-md text-base md:text-lg lg:text-xl font-raleway font-bold tracking-wider";
+  const navLinkClass = "nav-link text-white rounded-md text-base md:text-lg lg:text-xl font-raleway font-semibold tracking-wider";
   const mobileNavLinkClass = "block py-2 px-4 text-white hover:bg-indigo-800 text-lg font-raleway font-bold tracking-wider";
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <nav className="bg-indigo-950 font-raleway uppercase">
-        <div className="flex items-center justify-between h-20 md:h-20">  
+      <div className="flex items-center justify-between h-20 md:h-20">
         <button
           className="md:hidden text-white focus:outline-none px-2"
-          onClick={toggleMobileMenu}>
-        {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          onClick={toggleMobileMenu}
+        >
+          {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
-      
-          <div className="hidden md:flex md:justify-center mx-auto">
-            <div className="flex lg:space-x-20 md: space-x-10">
-              <Link to="/" className={navLinkClass}>Home</Link>
-              <Link to="/about" className={navLinkClass}>About</Link>
-              <Link to="/drives" className={navLinkClass}>Drives</Link>
-              <Link to="/projects" className={navLinkClass}>Projects</Link>
-              <Link to="/contact" className={navLinkClass}>Contact</Link>
-              <Link to="/events" className={navLinkClass}>Events</Link>
-            </div>
+
+        <div className="hidden md:flex md:justify-center mx-auto">
+          <div className="flex lg:space-x-20 md:space-x-10">
+            <Link to="/" className={navLinkClass}>Home</Link>
+            <Link to="/about" className={navLinkClass}>About</Link>
+            <Link to="/drives" className={navLinkClass}>Drives</Link>
+            <Link to="/projects" className={navLinkClass}>Projects</Link>
+            <Link to="/contact" className={navLinkClass}>Contact</Link>
+            <Link to="/events" className={navLinkClass}>Events</Link>
           </div>
         </div>
-      
+      </div>
+
       {/* Mobile menu */}
       <div className={`${isMobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -47,4 +61,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;

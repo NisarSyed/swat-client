@@ -22,11 +22,11 @@
     }
   
     .nav-link::after {
-      @apply content-[''] bg-red-700 h-[2px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300 ;
+      @apply content-[''] bg-red-700 h-[3px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300 ;
     }
   
     .nav-link:hover::after {
-      @apply w-[50%] ml-10 mr-20;
+      @apply w-[75%];
     }
   }
 
@@ -71,10 +71,13 @@
   padding-top: 1px;
   position: absolute;
   width:15%;
-  height: 3px; /* Adjust the height of the underline */
+  height: 4px; /* Adjust the height of the underline */
   background-color: #d32f2f; /* Adjust the color of the underline */
   bottom: -10px; /* Adjust the distance from the text */
   left: 50%;
   transform: translateX(-50%); /* Center the underline */
+  /*rounded line*/
+  border-radius: 10px;
+  
 }
   

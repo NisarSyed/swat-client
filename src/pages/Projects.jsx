@@ -37,9 +37,8 @@ const Projects = ({showBanner}) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}>
             <div className={`font-raleway px-5 mt-10 mb-10 md:mb-10 ${showBanner ? 'text-left text-indigo-900 underline-custom' : 'text-center'}`}>
-              <h2 className='text-5xl font-bold text-pretty antialiased accent-slate-200 text-indigo-950 px-32 font-raleway mb-5'>
-                Our <span>Projects</span>
-              </h2>
+            <h2 className="text-5xl font-semibold text-indigo-950 mb-4 font-raleway px-4">Our Projects</h2>
+              
             </div>
             </motion.div>
             

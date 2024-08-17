@@ -2,28 +2,33 @@ import React, { useState } from 'react';
 import { FaFacebook, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { Mail, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
-
+import { useNavigate } from 'react-router';
 
 const bankDetails = {
-    bankName: 'Bank Name',
-    accountTitle: 'Account Title',
-    accountNumber: 'Account Number',
-    iban: 'IBAN',
-    };
-    
+  bankName: 'Bank Name',
+  accountTitle: 'Account Title',
+  accountNumber: 'Account Number',
+  iban: 'IBAN',
+};
 
 const Header = () => {
-  
   const [isOpen, setIsOpen] = useState(false);
 
+  const navigate = useNavigate();
+
+
   const handleClick = () => {
-    setIsOpen(true);
+    navigate('/donate');
   };
-  
 
   return (
-    <header className='bg-indigo-950 text-white start-1 font-raleway h-auto antialiased'>
-       <div className='container mx-auto px-4'>
+    <motion.header 
+      className='bg-indigo-950 text-white start-1 font-raleway h-auto antialiased'
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className='container mx-auto '>
         {/* Top bar */}
         <div className='flex flex-col sm:flex-row justify-between items-center py-2'>
           <div className='flex flex-col sm:flex-row items-center mb-2 sm:mb-0'>
@@ -54,21 +59,21 @@ const Header = () => {
         </div>
       </div>
 
-      <div className='bg-white p-2 flex items-center justify-center'>
-        <div className='flex items-center justify-center'>
-          <img src='/swat.svg' alt='Logo' className='h-56 w-auto mr-10 ml-10' />
+      <div className='bg-white p-4'>
+        <div className='flex md:flex-row flex-col items-center justify-evenly px-20'>
+          <img src='/swat.svg' alt='Logo' className='h-56 w-auto ' />
           <span className='text-indigo-950 md:text-4xl font-extrabold font-raleway text-pretty tracking-wide'>
             Social Welfare & Trust IOBM
           </span>
-        </div>
-        <div className='ml-40'>
           <button
-            className='bg-indigo-950 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg text-2xl font-raleway shadow-xl antialiased'
+            className='bg-indigo-950 hover:bg-red-700 text-white font-bold sm:py-4 sm:px-8 rounded-lg md:text-2xl font-raleway shadow-xl antialiased text-xl px-4 py-2 sm:ml-12 sm:mt-0 mt-4'
             onClick={handleClick}
           >
-            Donate Now
-          </button>
+          Donate Now
+          </button> 
         </div>
+        
+        
       </div>
       
       {isOpen && (
@@ -95,7 +100,7 @@ const Header = () => {
           </div>
         </motion.div>
       )}
-    </header>
+    </motion.header>
   );
 };
 

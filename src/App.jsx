@@ -6,7 +6,7 @@ import About from './pages/About';
 import Drives from './pages/Drives';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import Header2 from './components/Header2';
+import Header from './components/Header.jsx';
 import DriveDetail from './pages/DriveDetail';
 import ProjectDetail from './pages/ProjectDetail';
 import { DrivesProvider } from './components/useDrives.jsx';
@@ -18,7 +18,7 @@ function App() {
     <DrivesProvider>
       <ProjectsProvider>
         <Router>
-          <Header2 />
+          <Header />
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />

@@ -5,6 +5,7 @@ import KPIs from '../components/KPIs';
 import Banner from '../components/Banner';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useNavigate } from 'react-router';
 
 const banner = {
   id: 1,
@@ -42,6 +43,8 @@ const About = () => {
     AOS.init({ duration: 1000 });
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <div className="font-raleway relative">
       {/* Hero Section (unchanged) */}
@@ -62,9 +65,11 @@ const About = () => {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/donate')}
               className="bg-red-700 text-white px-8 py-3 rounded-full font-bold flex items-center text-xl"
             >
               Get Involved <ChevronRight className="ml-2" />
+              
             </motion.button>
           </div>
         </div>
@@ -114,6 +119,7 @@ const About = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-red-700 text-white px-8 py-3 rounded-full font-bold flex items-center mx-auto"
+            onClick={() => navigate('/donate')}
           >
             Get Involved <ChevronRight className="ml-2" />
           </motion.button>
