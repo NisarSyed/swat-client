@@ -59,8 +59,6 @@ const Home = () => {
     fetchBanners();
   }, [banners]);
 
-  console.log("Banners in Home component", banners);
-
   const upcomingEvents = [
     {
       id: 1,
@@ -99,9 +97,6 @@ const Home = () => {
     autoplaySpeed: 10000,
     cssEase: "linear",
   };
-
-  console.log("Projects in Home component", projects);
-  console.log("Drives in Home component", drives);
 
   return (
     <div className="flex flex-col">
