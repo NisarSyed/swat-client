@@ -16,7 +16,9 @@ export const EventsProvider = ({ children }) => {
       }
     };
     fetchEvents();
-  }, [events]);
+  }, []);
+
+  console.log(events);
 
   const getEventById = (id) => {
     const event = events.find((event) => event._id === id);

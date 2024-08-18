@@ -2,24 +2,25 @@ import React from 'react';
 import { FaMapMarkerAlt, FaPhone, FaClock, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Banner from '../components/Banner';
-
+import { useContact } from '../utils/useContacts';
 const Contact = () => {
+
 
 
 
   const banner = {
     id: 1,
-    src: 'JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg',
+    image: 'JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg',
     alt: 'Banner 1',
   };
 
 
   const contactInfo = 
     {
-      address: 'Plot # 84, Korangi Creek, Karachi, Pakistan, 75190',
-      phone: '92-21-3663-1330',
-      hours: 'Mon-Sat 9am - 5pm',
-      email: 'info@swat.com',
+      address: 'Korangi Creek, Karachi, Pakistan',
+      phone: '+92 21 111 002 004',
+      hours: 'Mon - Fri: 9:00 AM - 5:00 PM',
+      email: '',
     }
   ;
 

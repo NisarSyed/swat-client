@@ -19,7 +19,7 @@ export const DrivesProvider = ({ children }) => {
       }
     };
     fetchDrives();
-  }, [drives]);
+  }, []);
 
   const getDriveById = (id) => {
     const drive = drives.find((drive) => drive._id === id);

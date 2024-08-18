@@ -4,6 +4,7 @@ import axios from 'axios';
 const ProjectsContext = createContext();
 
 export const ProjectsProvider = ({ children }) => {
+
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -16,7 +17,9 @@ export const ProjectsProvider = ({ children }) => {
       }
     };
     fetchProjects();
-  }, [projects]);
+  }, []);
+
+  console.log(projects);
 
   const getProjectById = (id) => {
     const project = projects.find((project) => project._id === id);

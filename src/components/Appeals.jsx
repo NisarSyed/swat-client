@@ -33,7 +33,9 @@ const Appeals = () => {
               image={appeal.images[0]}
               navigateTo={() => navigate(`/projects/${appeal._id}`)}
             >
-              <button className="bg-red-700 text-white px-4 py-2 rounded-md font-raleway font-semibold transition-colors duration-300 hover:bg-red-800 ">
+              <button className="bg-red-700 text-white px-4 py-2 rounded-md font-raleway font-semibold transition-colors duration-300 hover:bg-red-800 "
+              onClick={() => navigate(`/donate`)}
+              >
                 Donate Now
               </button>
             </Card>

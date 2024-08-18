@@ -15,12 +15,18 @@ import { DrivesProvider } from "./utils/useDrives.jsx";
 import { ProjectsProvider } from "./utils/useProjects.jsx";
 import { EventsProvider } from "./utils/useEvents.jsx";
 import DonationInfoPage from "./pages/Donate.jsx";
+import React, { Suspense, lazy } from "react";
+import { ContactProvider } from "./utils/useContacts.jsx";
+
 
 function App() {
   return (
+
+
     <EventsProvider>
       <DrivesProvider>
         <ProjectsProvider>
+          <ContactProvider>
           <Router>
             <Header />
             <Navbar />
@@ -41,6 +47,7 @@ function App() {
             </Routes>
             <Footer />
           </Router>
+          </ContactProvider>
         </ProjectsProvider>
       </DrivesProvider>
     </EventsProvider>

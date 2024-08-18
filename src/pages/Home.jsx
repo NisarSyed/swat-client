@@ -18,34 +18,6 @@ const Home = () => {
   const { drives } = useDrives();
 
   const [banners, setBanners] = useState([]);
-  const event = {
-    title: "Event Title",
-    date: "2024-08-15",
-    time: "6:00 PM",
-    location: "123 Main St, Springfield, IL",
-    attendees: 150,
-    description: "Join us for an evening of giving and entertainment.",
-    image: "/images/event.jpg",
-    highlights: [
-      {
-        title: "Special Guests",
-        description: "Meet local celebrities and influencers.",
-      },
-      {
-        title: "Live Music",
-        description: "Enjoy performances by local artists.",
-      },
-      {
-        title: "Silent Auction",
-        description: "Bid on exclusive items and experiences.",
-      },
-    ],
-    outcomes: [
-      "Raised $10,000 for charity",
-      "Increased awareness of local causes",
-      "Engaged 150 volunteers",
-    ],
-  };
 
   useEffect(() => {
     const fetchBanners = async () => {
@@ -58,8 +30,6 @@ const Home = () => {
     };
     fetchBanners();
   }, [banners]);
-
-  console.log("Banners in Home component", banners);
 
   const upcomingEvents = [
     {
@@ -99,9 +69,6 @@ const Home = () => {
     autoplaySpeed: 10000,
     cssEase: "linear",
   };
-
-  console.log("Projects in Home component", projects);
-  console.log("Drives in Home component", drives);
 
   return (
     <div className="flex flex-col">

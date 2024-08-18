@@ -7,9 +7,10 @@ import { useNavigate } from "react-router";
 import { useDrives } from "../utils/useDrives.jsx";
 
 const Drives = ({ showBanner }) => {
+
   const banner = {
     id: 1,
-    src: "JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg",
+    image: "JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg",
     alt: "Banner 1",
   };
 
@@ -17,6 +18,10 @@ const Drives = ({ showBanner }) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredDrives, setFilteredDrives] = useState(drives);
+
+  useEffect(() => {
+    setFilteredDrives(drives);
+  }, [drives]);
 
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
@@ -31,6 +36,7 @@ const Drives = ({ showBanner }) => {
   };
 
   return (
+    <>
     <div className="bg-gray-100 min-h-screen">
       {showBanner && <Banner banner={banner} text="Drives" />}
 
@@ -85,12 +91,13 @@ const Drives = ({ showBanner }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredDrives.map((drive) => (
             <motion.div
-              key={drive.id}
+              key={drive._id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
             >
               <DrivesCard
+                key={drive._id}
                 title={drive.title}
                 description={drive.description}
                 image={drive.images[0]}
@@ -101,6 +108,7 @@ const Drives = ({ showBanner }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

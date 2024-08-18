@@ -11,7 +11,7 @@ import { useEvents } from "../utils/useEvents";
 
 const banner = {
   id: 1,
-  src: "JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg",
+  image: "JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg",
   alt: "Banner 1",
 };
 
