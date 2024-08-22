@@ -39,7 +39,7 @@ const Navbar = () => {
           </button>
 
           <div className="hidden md:flex md:justify-center mx-auto">
-            <div className="flex space-x-4 lg:space-x-20">
+            <div className="flex space-x-4 lg:space-x-20 md:space-x-12">
               <Link to="/" className={navLinkClass}>
                 Home
               </Link>

@@ -81,19 +81,19 @@ const Header = () => {
 
       {/* Logo and Donate button */}
       <div className="bg-white p-4">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-center sm:space-x-32">
           <div className="flex items-center mb-4 md:mb-0">
             <img
               src="/swat.svg"
               alt="Logo"
-              className="h-20 md:h-32 w-auto mr-4"
+              className="h-36 sm:h-40 w-auto md:mr-14 align-middle"
             />
-            <span className="text-indigo-950 text-2xl md:text-3xl lg:text-4xl font-bold font-raleway text-pretty tracking-wide">
+            <span className="text-indigo-950 text-2xl md:text-3xl lg:text-4xl font-bold font-raleway text-pretty tracking-wide md:block hidden">
               Social Welfare & Trust IOBM
             </span>
           </div>
           <button
-            className="bg-indigo-950 hover:bg-red-700 text-white font-bold py-2 px-4 md:py-3 md:px-6 rounded-lg text-lg md:text-md font-raleway shadow-md antialiased transition duration-300"
+            className="bg-indigo-950 hover:bg-red-700 text-white font-bold py-1 px-2 sm:py-2 sm:px-4 md:py-3 md:px-6 rounded-lg text-lg md:text-md sm:text-xl font-raleway shadow-md antialiased transition duration-300 sm:ml-0"
             onClick={handleClick}
           >
             Donate Now

@@ -21,31 +21,27 @@ import { ContactProvider } from "./utils/useContacts.jsx";
 
 function App() {
   return (
-
-
+    
     <EventsProvider>
       <DrivesProvider>
         <ProjectsProvider>
           <ContactProvider>
-          <Router>
-            <Header />
-            <Navbar />
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/drives" element={<Drives showBanner={true} />} />
-              <Route path="/drives/:id" element={<DriveDetail />} />
-              <Route
-                path="/projects"
-                element={<Projects showBanner={true} />}
-              />
-              <Route path="/projects/:id" element={<ProjectDetail />} />
-              <Route path="/events" element={<Events showBanner={true} />} />
-              <Route path="/events/:id" element={<EventDetail />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/donate" element={<DonationInfoPage />} />
-            </Routes>
-            <Footer />
+            <Router>
+              <Header/>
+              <Navbar/>
+                <Routes>
+                  <Route exact path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/drives" element={<Drives showBanner={true} />} />
+                  <Route path="/drives/:id" element={<DriveDetail />} />
+                  <Route path="/projects" element={<Projects showBanner={true} />}/>
+                  <Route path="/projects/:id" element={<ProjectDetail />} />
+                  <Route path="/events" element={<Events showBanner={true} />} />
+                  <Route path="/events/:id" element={<EventDetail />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/donate" element={<DonationInfoPage />} />
+                </Routes>
+            <Footer/>
           </Router>
           </ContactProvider>
         </ProjectsProvider>

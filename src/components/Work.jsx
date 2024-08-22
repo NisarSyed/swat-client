@@ -17,9 +17,7 @@ const Work = ({ projects, drives }) => {
   return (
     <section className="py-12 font-raleway">
       <div className="container mx-auto" data-aos="fade-up">
-    
-          <h2 className=" custom-underline text-5xl font-semibold text-indigo-950 mb-10 text-center font-raleway">Our Work</h2>
-      
+          <h2 className=" custom-underline font-semibold text-indigo-950 mb-10 text-center font-raleway sm:text-5xl text-3xl">Our Work</h2>
         <div className = "grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
 
           {projects.map((project) => (

@@ -15,11 +15,11 @@ const DriveDetail = () => {
   }
 
   return (
-    <div className="bg-gradient-to-b from-indigo-50 to-white min-h-screen font-raleway">
-      <div className="bg-indigo-950 h-64 relative">
+    <div className="bg-gradient-to-b from-indigo-50 to-white font-raleway">
+      <div className="bg-indigo-950 sm:h-64 h-36 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-950 to-red-700 opacity-75"></div>
         <div className="container mx-auto px-4 h-full flex items-end pb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10">
+          <h1 className="text-sm md:text-4xl font-bold text-white z-10">
             {drive.title}
           </h1>
         </div>
@@ -28,12 +28,12 @@ const DriveDetail = () => {
       <div className="container mx-auto px-4 py-8 relative mt-20">
         <div className="bg-white rounded-lg shadow-xl overflow-hidden -mt-16 relative z-20">
           <div className="p-8">
-            <p className="text-indigo-950 text-xl tracking-wide leading-relaxed mb-6">
+            <p className="text-indigo-950 tracking-wide leading-relaxed mb-6 sm:text-xl text-sm">
               {drive.description}
             </p>
             <div className="flex flex-wrap gap-6 text-indigo-950">
-              <div className="flex items-center">
-                <Calendar className="mr-2 text-red-700" />
+              <div className="flex items-center sm:text-xl text-sm">
+                <Calendar className="mr-2 text-red-700 sm:size-6 size-4" />
                 <span>
                   {drive.from && drive.to
                     ? drive.from === drive.to
@@ -48,12 +48,12 @@ const DriveDetail = () => {
                     : "No date"}
                 </span>
               </div>
-              <div className="flex items-center">
-                <MapPin className="mr-2 text-red-700" />
+              <div className="flex items-center sm:text-xl text-sm">
+                <MapPin className="mr-2 text-red-700 sm:size-6 size-4" />
                 <span>{drive.location}</span>
               </div>
-              <div className="flex items-center">
-                <Users className="mr-2 text-red-700" />
+              <div className="flex items-center sm:text-xl text-sm">
+                <Users className="mr-2 text-red-700 sm:size-6 size-4" />
                 <span>{drive.volunteers} Volunteers</span>
               </div>
             </div>

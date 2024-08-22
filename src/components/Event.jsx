@@ -32,9 +32,7 @@ const PastEventDetailPage = ({ event }) => {
               <span>{event.attendees} attendees</span>
             </div>
           </div>
-          
           <p className="text-gray-300 mb-6">{event.description}</p>
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {event.highlights.map((highlight, index) => (
               <div key={index} className="bg-indigo-800 p-4 rounded-lg">
@@ -43,7 +41,6 @@ const PastEventDetailPage = ({ event }) => {
               </div>
             ))}
           </div>
-          
           <button className="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300">
             View Gallery
           </button>

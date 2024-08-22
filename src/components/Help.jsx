@@ -16,7 +16,11 @@ const HelpOption = ({ icon, text, details }) => (
   
 );
 
-const HelpOptions = () => {
+const HelpOptions = ({contact}) => {
+
+
+  
+
   const options = [
     { 
       icon: <Hand size={40} className="text-indigo-950" />, 
@@ -31,7 +35,7 @@ const HelpOptions = () => {
     { 
       icon: <Book size={40} className="text-indigo-950" />, 
       text: "CALL FOR DONATION",
-      details: "Email: info@swat.org - Phone: 000 000 000"
+      details: "Help us spread the word and raise awareness."
     },
     { 
       icon: <Heart size={40} className="text-indigo-950" />, 

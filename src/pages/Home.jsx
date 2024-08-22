@@ -10,14 +10,22 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useProjects } from "../utils/useProjects";
 import { useDrives } from "../utils/useDrives";
+import { useContact } from "../utils/useContacts";
 import axios from "axios";
 import Appeals from "../components/Appeals";
+import KPISection from "../components/KPIs";
+import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
+
 
 const Home = () => {
   const { projects } = useProjects();
   const { drives } = useDrives();
+  const { contact } = useContact();
+
 
   const [banners, setBanners] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchBanners = async () => {
@@ -31,29 +39,14 @@ const Home = () => {
     fetchBanners();
   }, [banners]);
 
-  const upcomingEvents = [
-    {
-      id: 1,
-      date: "2024-08-15",
-      title: "Annual Charity Gala",
-      description: "Join us for an evening of giving and entertainment.",
-    },
-    {
-      id: 2,
-      date: "2024-08-22",
-      title: "Community Clean-up Drive",
-      description: "Help us make our neighborhood beautiful!",
-    },
-    {
-      id: 3,
-      date: "2024-09-01",
-      title: "Back-to-School Supply Drive",
-      description: "Donate school supplies for underprivileged children.",
-    },
-  ];
+
+  useEffect(() => {
+    if (projects.length > 0 && drives.length > 0 && contact.length > 0) {
+      setIsLoading(false);
+    }
+  }, [projects, drives, contact]);
 
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     AOS.init({ duration: 1000 });
     setIsVisible(true);
@@ -71,6 +64,7 @@ const Home = () => {
   };
 
   return (
+
     <div className="flex flex-col">
       <div className="relative h-screen">
         <Slider {...settings}>
@@ -87,28 +81,42 @@ const Home = () => {
                 isVisible ? "opacity-100" : "opacity-0"
               }`}
             >
-              Welcome to our SWAT home page
+            Welcome to our SWAT home page
             </h1>
             <p
               className={`mt-2 text-lg sm:text-xl md:text-2xl lg:text-2xl text-white font-poppins transition-opacity duration-1000 ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}
             >
-              #TogetherWeCan
+            #TogetherWeCan
             </p>
           </div>
         </div>
       </div>
 
       <div className="w-full" data-aos="fade-up">
-        <HelpOptions />
+        <HelpOptions contact={contact} />
       </div>
       <div data-aos="fade-up">
         <Work projects={projects} drives={drives} />
       </div>
       <div data-aos="fade-up">
-        <Appeals />
+        <Appeals projects={projects} drives={drives} />
       </div>
+      <div data-aos="fade-up">
+        <KPISection />
+    </div>
+    <div className="text-center my-8 sm:my-16" data-aos="fade-up">
+          <h2 className="text-3xl sm:text-4xl font-bold text-indigo-900 mb-4 sm:mb-6">Join Us in Making a Difference</h2>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-red-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold flex items-center mx-auto text-base sm:text-xl"
+            onClick={() => navigate('/donate')}
+          >
+            Get Involved <ChevronRight className="ml-2" />
+          </motion.button>
+        </div>
     </div>
   );
 };

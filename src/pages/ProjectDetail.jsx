@@ -26,12 +26,12 @@ const ProjectDetail = () => {
       <div className="bg-indigo-950 h-64 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-950 to-red-700 opacity-75"></div>
         <div className="container mx-auto px-4 h-full flex items-end pb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10">
+          <h1 className="text-2xl md:text-5xl font-bold text-white relative z-10">
             {project.title}
           </h1>
         </div>
       </div>
-
+      
       <div className="container mx-auto px-4 py-8 relative mt-20">
         <div className="bg-white rounded-lg shadow-xl overflow-hidden -mt-16 relative z-20">
           <div className="p-8">

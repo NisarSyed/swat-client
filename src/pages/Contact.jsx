@@ -6,6 +6,9 @@ import { useContact } from '../utils/useContacts';
 const Contact = () => {
 
 
+  const { contact } = useContact();
+  console.log(contact)
+
 
 
   const banner = {

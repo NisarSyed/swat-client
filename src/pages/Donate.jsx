@@ -38,27 +38,27 @@ const DonationInfoPage = () => {
   return (
     <div>
     <Banner banner={banner} text="Donate Us" />
-    <div className="bg-gray-100 min-h-screen text-gray-800 font-raleway">
+    <div className="bg-gray-100 text-gray-800 font-raleway">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-5xl font-semibold mb-6 text-center text-indigo-950">Support Our Cause</h1>
+        <h1 className="sm:text-5xl text-xl font-semibold mb-6 text-center text-indigo-950">Support Our Cause</h1>
         
         <div className={`grid ${isingle ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-6 mb-8`}>
           {bankAccounts.map((account, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-2xl font-semibold mb-4 text-indigo-950">Bank Account Details for Donations</h2>
+            <div key={index} className="bg-white rounded-lg shadow-lg p-6 sm:text-xl text-sm">
+              <h2 className="font-semibold mb-4 text-indigo-950">Bank Account Details for Donations</h2>
               <p className="mb-6">To make a donation, please use the following bank account information:</p>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 sm:text-lg text-sm">
                 <div className="space-y-4">
                   <div className="flex items-center">
-                    <Building className="mr-3 text-red-700 flex-shrink-0" size={24} />
+                    <Building className="mr-3 text-red-700 flex-shrink-0 sm:size-6 size-4"  />
                     <div>
                       <p className="font-semibold">Bank Name</p>
                       <p>{account.bankName}</p>
                     </div>
                   </div>
                   <div className="flex items-center">
-                    <CreditCard className="mr-3 text-red-700 flex-shrink-0" size={24} />
+                    <CreditCard className="mr-3 text-red-700 flex-shrink-0 sm:size-6 size-4" />
                     <div>
                       <p className="font-semibold">Account Number</p>
                       <p>{account.accountNumber}</p>
@@ -67,14 +67,14 @@ const DonationInfoPage = () => {
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center">
-                    <User className="mr-3 text-red-700 flex-shrink-0" size={24} />
+                    <User className="mr-3 text-red-700 flex-shrink-0 sm:size-6 size-4"  />
                     <div>
                       <p className="font-semibold">Account Holder Name</p>
                       <p>{account.accountHolderName}</p>
                     </div>
                   </div>
                   <div className="flex items-center">
-                    <MapPin className="mr-3 text-red-700 flex-shrink-0" size={24} />
+                    <MapPin className="mr-3 text-red-700 flex-shrink-0 sm:size-6 size-4" />
                     <div>
                       <p className="font-semibold">Branch Name</p>
                       <p>{account.branchName}</p>
@@ -86,9 +86,9 @@ const DonationInfoPage = () => {
           ))}
         </div>
         
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-semibold mb-4 text-indigo-950">How to Donate</h2>
-          <ol className="list-decimal list-inside space-y-2 text-gray-700">
+        <div className="bg-white rounded-lg shadow-lg p-6 sm:text-xl text-sm">
+          <h2 className="font-semibold mb-4 text-indigo-950 sm:text-xl text-sm">How to Donate</h2>
+          <ol className="list-decimal list-inside space-y-2 text-gray-700 sm:text-xl text-sm">
             <li>Log in to your online banking platform or visit your bank branch.</li>
             <li>Initiate a fund transfer or deposit to {isingle ? 'the' : 'one of the'} account details provided above.</li>
             <li>Use "Donation" as the reference for the transaction.</li>
@@ -96,8 +96,8 @@ const DonationInfoPage = () => {
           </ol>
         </div>
         
-        <div className="mt-8 text-center text-indigo-950">
-          <p className="text-xl font-semibold">Thank you for your generous support!</p>
+        <div className="mt-8 text-center text-indigo-950 sm:text-lg text-sm">
+          <p className="font-semibold sm:text-xl text-sm">Thank you for your generous support!</p>
           <p>Your contribution helps us make a difference.</p>
         </div>
       </div>
