@@ -11,12 +11,12 @@ const KPICard = ({ icon, title, value, increase }) => (
         {icon}
       </div>
     </div>
-    <h3 className="text-3xl font-bold mb-1">{value}</h3>
-    <p className="text-indigo-200 text-2xl">{title}</p>
+    <h3 className="sm:text-3xl font-bold mb-1 text-xl ">{value}</h3>
+    <p className="text-indigo-200 sm:text-2xl text-sm">{title}</p>
   </div>
 );
 
-const KPISection = () => {
+const KPISection = ({isHome}) => {
   const kpiData = [
     { icon: <Calendar size={24} />, title: "Drives Conducted", value: "150+", increase: 12 },
     { icon: <Package size={24} />, title: "Ration Bags Delivered", value: "10,000+", increase: 8 },
@@ -24,15 +24,17 @@ const KPISection = () => {
   ];
 
   return (
-    <section className="py-12 font-raleway">
-      <div className="container mx-auto" data-a0s="fade-up">
-        <h2 className="text-5xl font-bold text-indigo-950 mb-10 text-left ">Our Impact</h2>
-        <div className="flex flex-col md:flex-row justify-center items-stretch">
+    <section className="sm:py-8 py-4 font-raleway">
+      
+      <div className="container mx-auto" data-aos="fade-up">
+      <h2 className={`text-indigo-950 mb-10 text-center font-raleway text-4xl sm:text-4xl md:text-5xl ${isHome ? 'custom-underline font-semibold text-indigo-950 mb-10 text-center font-raleway sm:text-5xl text-3xl' : 'font-bold mb-6 sm:mb-10'}`}> Our Impact</h2>
+        <div className="flex flex-col md:flex-row justify-center items-stretch sm:px-2 px-6 sm:py-2 py-8">
           {kpiData.map((kpi, index) => (
             <KPICard key={index} {...kpi} />
           ))}
         </div>
       </div>
+    
     </section>
   );
 };

@@ -5,11 +5,12 @@ const ContactContext = createContext();
 
 
 export const ContactProvider = ({ children }) => {
-    const [contact, setContact] = useState([]); 
+    
+    const [contact, setContact] = useState([]);
     useEffect(() => {
         const fetchContact = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/contact');
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/contact`);
                 setContact(response.data);
             } catch (error) {
                 console.error('Error fetching contact:', error);
@@ -18,7 +19,7 @@ export const ContactProvider = ({ children }) => {
         fetchContact();
     }, []);
 
-    console.log(contact);
+
 
     return (
         <ContactContext.Provider value={{ contact }}>

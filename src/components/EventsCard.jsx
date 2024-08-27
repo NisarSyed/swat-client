@@ -9,6 +9,7 @@ const EventCard = ({ title, image, description, navigateTo }) => {
         image={image}
         description={description}
         navigateTo={navigateTo}
+        showDonateButton={false}
       />
     </>
   );

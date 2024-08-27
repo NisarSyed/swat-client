@@ -33,7 +33,6 @@ const Header = () => {
   }, [contact]);
   
 
-  console.log(contact);
 
   return (
     <motion.header

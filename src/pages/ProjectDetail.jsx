@@ -16,10 +16,8 @@ const ProjectDetail = () => {
     return <div>Project not found</div>;
   }
 
-  console.log(project.description);
-
   const textSplit = project.description.split("\n");
-  console.log(textSplit);
+  
 
   return (
     <div className="bg-gradient-to-b from-indigo-50 to-white min-h-screen font-raleway">

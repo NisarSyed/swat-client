@@ -2,9 +2,7 @@ import React from 'react';
 import { CreditCard, Building, User, Hash, MapPin } from 'lucide-react';
 import Banner from '../components/Banner';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-
-  
+import { useEffect, useState, useCallback } from 'react';
 
 const DonationInfoPage = () => {
 
@@ -12,21 +10,19 @@ const DonationInfoPage = () => {
 
   const isingle = bankAccounts.length === 1;
 
-  useEffect(() => {
-    const fetchBankAccount = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/accounts');
-        setBankAccount(response.data);
-      } catch (error) {
-        console.error('Error fetching bank account:', error);
-      }
+  const fetchBankAccount = useCallback(async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/accounts`);
+      setBankAccount(response.data);
+    } catch (error) {
+      console.error('Error fetching bank account:', error);
     }
-    fetchBankAccount();
-  }
-  , [bankAccounts]);
+  }, []);
 
-  console.log(bankAccounts);
-    
+  useEffect(() => {
+    fetchBankAccount();
+  }, [fetchBankAccount]);
+
   const banner = 
 
   {

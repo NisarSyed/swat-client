@@ -8,9 +8,10 @@ export const ProjectsProvider = ({ children }) => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
+
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/projects');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/projects`);
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -19,7 +20,7 @@ export const ProjectsProvider = ({ children }) => {
     fetchProjects();
   }, []);
 
-  console.log(projects);
+ 
 
   const getProjectById = (id) => {
     const project = projects.find((project) => project._id === id);

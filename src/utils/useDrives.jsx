@@ -10,7 +10,7 @@ export const DrivesProvider = ({ children }) => {
   useEffect(() => {
     const fetchDrives = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/drives');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/drives`);
         setDrives(response.data);
         
       } catch (error) {

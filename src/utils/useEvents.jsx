@@ -9,7 +9,7 @@ export const EventsProvider = ({ children }) => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/events");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/events`);
         setEvents(response.data);
       } catch (error) {
         console.error("Error fetching events:", error);
@@ -17,8 +17,6 @@ export const EventsProvider = ({ children }) => {
     };
     fetchEvents();
   }, []);
-
-  console.log(events);
 
   const getEventById = (id) => {
     const event = events.find((event) => event._id === id);

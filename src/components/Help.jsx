@@ -1,5 +1,6 @@
 import React from 'react'
 import { Hand, Coins, Book, Heart } from 'lucide-react'
+import { useContact } from '../utils/useContacts'
 import aos from 'aos'
 
 const HelpOption = ({ icon, text, details }) => (
@@ -10,16 +11,14 @@ const HelpOption = ({ icon, text, details }) => (
       <p className="text-indigo-950 font-raleway text-center font-semibold text-lg sm:text-xl md:text-2xl lg:text-2xl p-5">{text}</p>
     </div>
     <div className="absolute inset-0 p-4 opacity-0 transition-all duration-300 group-hover:opacity-100 flex items-center justify-center">
-      <p className="text-red-700 font-raleway font-medium text-center text-sm sm:text-base md:text-lg lg:text-xl">{details}</p>
+      <p className="text-red-700 font-raleway font-medium text-center text-sm sm:text-base md:text-lg lg:text-xl sm:px-2 px-6 sm:py-0 py-2">{details}</p>
     </div>
   </div>
-  
 );
 
 const HelpOptions = ({contact}) => {
 
 
-  
 
   const options = [
     { 
@@ -35,7 +34,7 @@ const HelpOptions = ({contact}) => {
     { 
       icon: <Book size={40} className="text-indigo-950" />, 
       text: "CALL FOR DONATION",
-      details: "Help us spread the word and raise awareness."
+      details: "Contact us @ " + contact[0].Phone1 + " or " + contact[0].Phone2 + " to donate."
     },
     { 
       icon: <Heart size={40} className="text-indigo-950" />, 
@@ -46,11 +45,11 @@ const HelpOptions = ({contact}) => {
 
   return (
     <div className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8 font-raleway">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center mb-4 sm:mb-6 md:mb-8 text-indigo-950">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center mb-2 sm:mb-6 md:mb-8 text-indigo-950">
         How can you help <span className="text-red-700 font-raleway">us</span>?
       </h1>
     
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 my-4 sm:my-6 md:my-8 lg:my-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 my-4 sm:my-6 md:my-8 lg:my-10 sm:px-2 px-6 sm:py-0 py-2">
         {options.map((option, index) => (
           <HelpOption key={index} icon={option.icon} text={option.text} details={option.details} />
         ))}

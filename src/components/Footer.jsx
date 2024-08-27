@@ -59,8 +59,8 @@ const Footer = () => {
   useEffect(() => {
     if (events.length && drives.length && contact.length) {
       setFooterData({
-        events: events.map(event => ({ title: event.title, url: `/events/${event._id}` })),
-        ourWork: drives.map(drive => ({ title: drive.title, url: `/drives/${drive._id}` })),
+        events: events.slice(0, 3).map(event => ({ title: event.title, url: `/events/${event._id}` })), // Limit to 3 events
+        ourWork: drives.slice(0, 5).map(drive => ({ title: drive.title, url: `/drives/${drive._id}` })), // Limit to 5 drives
         getInvolved: [
           { title: 'Home', url: '/' },
           { title: 'About Us', url: '/about' },
@@ -110,7 +110,7 @@ const Footer = () => {
 
   return (
     <div className='relative '>
-    <footer className="bg-indigo-950 text-white p-8 font-raleway text-lg tracking-wide">
+    <footer className="bg-indigo-950 text-white p-8 font-raleway text-lg tracking-wide px-6">
       <div className="flex md:flex-row flex-col justify-between mx-auto max-w-auto px-10">
         <div className="flex flex-col space-y-4 ml-2 sm:mb-0 mb-10 tracking-wide">
           <h2 className="sm:text-2xl text-2xl flex-col font-bold mb-4 text-indigo-400 tracking-wide">Events</h2>

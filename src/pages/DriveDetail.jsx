@@ -28,7 +28,7 @@ const DriveDetail = () => {
       <div className="container mx-auto px-4 py-8 relative mt-20">
         <div className="bg-white rounded-lg shadow-xl overflow-hidden -mt-16 relative z-20">
           <div className="p-8">
-            <p className="text-indigo-950 tracking-wide leading-relaxed mb-6 sm:text-xl text-sm">
+            <p className="text-indigo-950 sm:tracking-wide tracking-normal leading-relaxed mb-6 sm:text-xl text-sm">
               {drive.description}
             </p>
             <div className="flex flex-wrap gap-6 text-indigo-950">

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Search, Filter, Share2 } from "lucide-react";
+import { Search, Filter } from "lucide-react";
 import Banner from "../components/Banner";
 import DrivesCard from "../components/DrivesCard";
 import { useNavigate } from "react-router";
 import { useDrives } from "../utils/useDrives.jsx";
 
 const Drives = ({ showBanner }) => {
-
   const banner = {
     id: 1,
     image: "JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg",
@@ -23,7 +22,7 @@ const Drives = ({ showBanner }) => {
     setFilteredDrives(drives);
   }, [drives]);
 
-  const handleSearch = (e) => {
+  const handleSearch = useCallback((e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
     setFilteredDrives(
@@ -33,10 +32,32 @@ const Drives = ({ showBanner }) => {
           drive.description.toLowerCase().includes(term)
       )
     );
-  };
+  }, [drives]);
+
+  const featuredDrive = useMemo(() => {
+    return filteredDrives.length > 0 ? filteredDrives[0] : null;
+  }, [filteredDrives]);
+
+  const driveCards = useMemo(() => {
+    return filteredDrives.map((drive) => (
+      <motion.div
+        key={drive._id}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <DrivesCard
+          key={drive._id}
+          title={drive.title}
+          description={drive.description}
+          image={drive.images[0]}
+          navigateTo={() => navigate(`/drives/${drive._id}`)}
+        />
+      </motion.div>
+    ));
+  }, [filteredDrives, navigate]);
 
   return (
-    <>
     <div className="bg-gray-100 min-h-screen">
       {showBanner && <Banner banner={banner} text="Drives" />}
 
@@ -67,7 +88,7 @@ const Drives = ({ showBanner }) => {
         </div>
 
         {/* Featured drive */}
-        {filteredDrives.length > 0 && (
+        {featuredDrive && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -75,11 +96,11 @@ const Drives = ({ showBanner }) => {
             className="bg-gradient-to-r from-indigo-950 to-indigo-800 rounded-lg p-6 mb-8 text-white"
           >
             <h3 className="text-2xl font-bold mb-2">
-              Featured Drive: {filteredDrives[0].title}
+              Featured Drive: {featuredDrive.title}
             </h3>
-            <p className="mb-4">{filteredDrives[0].description}</p>
+            <p className="mb-4">{featuredDrive.description}</p>
             <button
-              onClick={() => navigate(`/drives/${filteredDrives[0]._id}`)}
+              onClick={() => navigate(`/drives/${featuredDrive._id}`)}
               className="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300"
             >
               Learn More
@@ -88,28 +109,12 @@ const Drives = ({ showBanner }) => {
         )}
 
         {/* Drives grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredDrives.map((drive) => (
-            <motion.div
-              key={drive._id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <DrivesCard
-                key={drive._id}
-                title={drive.title}
-                description={drive.description}
-                image={drive.images[0]}
-                navigateTo={() => navigate(`/drives/${drive._id}`)}
-              />
-            </motion.div>
-          ))}
+        <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5 p-2 px-10 min-w-40 mb-10">
+          {driveCards}
         </div>
       </div>
     </div>
-    </>
   );
 };
 
-export default Drives;
+export default React.memo(Drives);
