@@ -6,32 +6,29 @@ import { useDrives } from '../utils/useDrives';
 import { useEvents } from '../utils/useEvents';
 import { useContact } from '../utils/useContacts';
 import { useState } from 'react';
-
-
-
+import { Link } from 'react-router-dom';
 
 
 const EventItem = ({ item }) => (
   <li className="flex items-center">
     <span className="text-indigo-500 "><ChevronRight/></span>
-    <a href={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</a>
+    <Link to={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</Link>
   </li>
 );
 
 const OurWorkItem = ({ item }) => (
   <li className="flex items-center">
     <span className="text-indigo-500  "><ChevronRight/></span>
-    <a href={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</a>
+    <Link to={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</Link>
   </li>
 );
 
 const GetInvolvedItem = ({ item }) => (
   <li className="flex items-center">
     <span className="text-indigo-500 "><ChevronRight/></span>
-    <a href={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</a>
+    <Link to={item.url} className="hover:text-indigo-500 hover:scale-105 hover:translate-x-3 duration-300">{item.title}</Link>
   </li>
 );
-
 const ContactInfo = ({ icon, text }) => (
   <p className="flex items-center justify-start">
     <span className="text-indigo-500 ">{icon}</span>
