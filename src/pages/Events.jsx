@@ -47,8 +47,8 @@ const Events = ({ showBanner }) => {
             showBanner ? "text-left text-indigo-900" : "text-center"
           }`}
         >
-          <h2 className="text-5xl font-semibold text-pretty antialiased accent-slate-200 text-indigo-950 px-16 font-raleway mb-5">
-            Our <span>Events</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-pretty antialiased accent-slate-200 text-indigo-950 px-16 font-raleway mb-5">
+            Our Events
           </h2>
         </div>
       </motion.div>

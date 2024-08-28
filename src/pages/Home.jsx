@@ -16,6 +16,7 @@ import KPISection from "../components/KPIs";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router";
+import LazyLoad from "react-lazyload";
 
 const Home = () => {
   const { projects } = useProjects();
@@ -27,8 +28,6 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  // const [drivesData, setDrivesData] = useState([]);
-  // const [projectsData, setProjectsData] = useState([]);
   const [contactData, setContactData] = useState([]);
 
   const fetchBanners = useCallback(async () => {
@@ -42,15 +41,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchBanners();
-  }, []);
-
-  // useEffect(() => {
-  //   if (projects.length > 0 && drives.length > 0 && contact.length > 0) {
-  //     setProjectsData(projects);
-  //     setDrivesData(drives);
-  //     setContactData(contact);
-  //   }
-  // }, [projects, drives, contact]);
+  }, [fetchBanners]);
 
   useEffect(() => {
     if (contact.length > 0) {
@@ -81,18 +72,19 @@ const Home = () => {
   }
 
   return (
-    
-  <div className = "overflow-x-hidden">
-    <div className="flex flex-col">
-      <div className="relative h-screen">
-        <Slider {...settings}>
-          {banners.map((banner) => (
-            <div key={banner._id} className="relative h-screen">
-              <img src={banner.image} className="w-full h-full object-cover" />
-            </div>
-          ))}
-        </Slider>
-        <div className="absolute top-0 left-0 w-full h-full bg-indigo-950 bg-opacity-60 flex flex-col items-center justify-center bg-gradient-to-t from-black/80 via-black/30 text-center">
+    <div className="overflow-x-hidden">
+      <div className="flex flex-col">
+        <div className="relative h-screen">
+          <Slider {...settings}>
+            {banners.map((banner) => (
+              <div key={banner._id} className="relative h-screen">
+                <LazyLoad height={200} offset={100} placeholder={<div>Loading...</div>}>
+                  <img src={banner.image} className="w-full h-full object-cover" alt="Banner" />
+                </LazyLoad>
+              </div>
+            ))}
+          </Slider>
+          <div className="absolute top-0 left-0 w-full h-full bg-indigo-950 bg-opacity-60 flex flex-col items-center justify-center bg-gradient-to-t from-black/80 via-black/30 text-center">
             <h1
               className={`px-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-bold font-raleway transition-opacity duration-1000 ${
                 isVisible ? "opacity-100" : "opacity-0"
@@ -107,40 +99,38 @@ const Home = () => {
             >
               #TogetherWeCan
             </p>
-        
+          </div>
         </div>
-      </div>
 
-      {contactData.length > 0 && (
-        <>
-          <div className="w-full " data-aos="fade-up">
-            <HelpOptions contact={contactData} />
-          </div>
-          <div data-aos="fade-up" className="p-4">
-            <Work projects={projects} drives={drives} />
-          </div>
-          <div data-aos="fade-up" className="p-4">
-            <Appeals projects={projects} drives={drives} />
-          </div>
-          <div data-aos="fade-up" className="bg-slate-100 p-4">
-            <KPISection isHome={true} />
-          </div>
-          <div className="text-center my-8 sm:my-16 p-4" data-aos="fade-up">
-            <h2 className="text-3xl sm:text-4xl sm:font-bold font-semibold text-indigo-900 mb-4 sm:mb-6 px-12">Join Us in Making a Difference</h2>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-red-700 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-full font-bold flex items-center mx-auto text-base sm:text-xl"
-              onClick={() => navigate('/donate')}
-            >
-              Get Involved <ChevronRight className="ml-2" />
-            </motion.button>
-          </div>
-        </>
-      )}
+        {contactData.length > 0 && (
+          <>
+            <div className="w-full " data-aos="fade-up">
+              <HelpOptions contact={contactData} />
+            </div>
+            <div data-aos="fade-up" className="p-4">
+              <Work projects={projects} drives={drives} />
+            </div>
+            <div data-aos="fade-up" className="p-4">
+              <Appeals projects={projects} drives={drives} />
+            </div>
+            <div data-aos="fade-up" className="bg-slate-100 p-4">
+              <KPISection isHome={true} />
+            </div>
+            <div className="text-center my-8 sm:my-16 p-4" data-aos="fade-up">
+              <h2 className="text-3xl sm:text-4xl sm:font-bold font-semibold text-indigo-900 mb-4 sm:mb-6 px-12">Join Us in Making a Difference</h2>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-red-700 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-full font-bold flex items-center mx-auto text-base sm:text-xl"
+                onClick={() => navigate('/donate')}
+              >
+                Get Involved <ChevronRight className="ml-2" />
+              </motion.button>
+            </div>
+          </>
+        )}
+      </div>
     </div>
-  </div>
-  
   );
 };
 
