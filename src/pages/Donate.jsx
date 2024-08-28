@@ -33,7 +33,7 @@ const DonationInfoPage = () => {
   
   return (
     <div>
-    <Banner banner={banner} text="Donate Us" />
+    <Banner banner={banner} text="Donate Now" />
     <div className="bg-gray-100 text-gray-800 font-raleway">
       <div className="container mx-auto px-4 py-8">
         <h1 className="sm:text-5xl text-xl font-semibold mb-6 text-center text-indigo-950">Support Our Cause</h1>
