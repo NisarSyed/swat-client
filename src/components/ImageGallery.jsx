@@ -22,7 +22,7 @@ const ImageGallery = ({ images }) => {
 
   return (
     <div className="mt-12 mb-12">
-      <h2 className="text-4xl font-semibold text-indigo-950 mb-8 pl-4">
+      <h2 className="sm:text-4xl text-2xl font-semibold text-indigo-950 mb-8 pl-4">
         Gallery
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3 px-4">

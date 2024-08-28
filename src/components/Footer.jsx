@@ -77,37 +77,6 @@ const Footer = () => {
     }
   }, [events, drives, contact]);
   
-  // const footerData = {
-  //   events: [
-  //     { title: 'Event 1', url: '/events/1' },
-  //     { title: 'Event 2', url: '/events/2' },
-  //     { title: 'Event 3', url: '/events/3' },
-  //     { title: 'Event 4', url: '/events/4' },
-  //   ],
-  //   ourWork: [
-  //     { title: 'Drive 1', url: '/drives/1' },
-  //     { title: 'Drive 2', url: '/drives/2' },
-  //     { title: 'Drive 3', url: '/drives/3' },
-  //     { title: 'Drive 4', url: '/drives/4' },
-  //   ],
-  //   getInvolved: [
-  //     { title: 'Home', url: '/' },
-  //     { title: 'About Us', url: '/about' },
-  //     { title: 'Our Projects', url: '/projects' },
-  //     { title: 'Drives', url: '/drives' },
-  //     { title: 'Contact us', url: '/contact' },
-  //   ],
-  //   contact: {
-  //     address: 'Plot # 84, Korangi Creek, Karachi, Pakistan',
-  //     email: '',
-  //     phone: '',
-  //   },
-  // };
-
-
-
-
-
   return (
     <div className='relative '>
     <footer className="bg-indigo-950 text-white p-8 font-raleway text-lg tracking-wide px-6">

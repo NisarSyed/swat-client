@@ -43,7 +43,7 @@ const Drives = ({ showBanner }) => {
 
   return (
     <div className="mt-auto">
-      {showBanner && <Banner banner={banner} text="Projects" />}
+      {showBanner && <Banner banner={banner} text="Drives" />}
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -56,7 +56,7 @@ const Drives = ({ showBanner }) => {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-pretty antialiased accent-slate-200 text-indigo-950 px-16 font-raleway mb-5">
-            Our <span>Drives</span>
+            Our Drives
           </h2>
         </div>
       </motion.div>

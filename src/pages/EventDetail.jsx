@@ -23,7 +23,7 @@ const EventDetail = () => {
       <div className="bg-indigo-950 h-64 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-950 to-red-700 opacity-75"></div>
         <div className="container mx-auto px-4 h-full flex items-end pb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10">
+          <h1 className="text-3xl md:text-5xl font-bold text-white relative z-10">
             {event.title}
           </h1>
         </div>
@@ -32,7 +32,7 @@ const EventDetail = () => {
       <div className="container mx-auto px-4 py-8 relative mt-20">
         <div className="bg-white rounded-lg shadow-xl overflow-hidden -mt-16 relative z-20">
           <div className="p-8">
-            <p className="text-indigo-950 text-xl tracking-wide leading-relaxed mb-6">
+            <p className="text-indigo-950 sm:text-xl text-sm tracking-wide leading-relaxed mb-6">
               {textSplit.map((text, index) => (
                 <span key={index}>
                   {text}

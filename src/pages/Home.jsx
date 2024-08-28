@@ -42,7 +42,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchBanners();
-  }, [fetchBanners]);
+  }, []);
 
   // useEffect(() => {
   //   if (projects.length > 0 && drives.length > 0 && contact.length > 0) {
@@ -82,6 +82,7 @@ const Home = () => {
 
   return (
     
+  <div className = "overflow-x-hidden">
     <div className="flex flex-col">
       <div className="relative h-screen">
         <Slider {...settings}>
@@ -91,8 +92,7 @@ const Home = () => {
             </div>
           ))}
         </Slider>
-        <div className="absolute top-0 left-0 w-full h-full bg-indigo-950 bg-opacity-60 flex items-center justify-center bg-gradient-to-t from-black/80 via-black/30">
-          <div className="text-center">
+        <div className="absolute top-0 left-0 w-full h-full bg-indigo-950 bg-opacity-60 flex flex-col items-center justify-center bg-gradient-to-t from-black/80 via-black/30 text-center">
             <h1
               className={`px-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-bold font-raleway transition-opacity duration-1000 ${
                 isVisible ? "opacity-100" : "opacity-0"
@@ -107,7 +107,7 @@ const Home = () => {
             >
               #TogetherWeCan
             </p>
-          </div>
+        
         </div>
       </div>
 
@@ -139,6 +139,7 @@ const Home = () => {
         </>
       )}
     </div>
+  </div>
   
   );
 };
