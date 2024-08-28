@@ -81,6 +81,7 @@ const Home = () => {
   }
 
   return (
+    
     <div className="flex flex-col">
       <div className="relative h-screen">
         <Slider {...settings}>
@@ -138,6 +139,7 @@ const Home = () => {
         </>
       )}
     </div>
+  
   );
 };
 

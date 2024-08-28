@@ -11,7 +11,7 @@ import TestimonialCard from '../components/TestimonialCard';
 
 const banner = {
   id: 1,
-  image: 'JacobJaviad_24/2024-04-14_16-53-03_UTC_5.jpg',
+  image: 'banner.jpg',
   alt: 'Banner 1',
 };
 
@@ -30,7 +30,7 @@ const About = () => {
       <div className="container mx-auto px-4 py-8 sm:py-16 w-full" data-aos="fade-up">
         <div className="flex flex-col md:flex-row items-center mb-8 sm:mb-16 sm:px-2 px-8 sm:py-0 py-2">
           <div className="w-full md:w-1/2 mb-8 md:mb-0 ">
-            <img src="2024-04-07_17-58-36_UTC_7.jpg" alt="Our mission" className="rounded-lg shadow-xl w-full" />
+            <img src="About_us.jpg" alt="Our mission" className="rounded-lg shadow-xl w-full" />
           </div>
           <div className="w-full md:w-1/2 md:pl-8 lg:pl-12 ">
             <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold text-indigo-950 mb-4 sm:mb-6">Our Mission</h2>
