@@ -20,7 +20,7 @@ const EventDetail = () => {
 
   return (
     <div className="bg-gradient-to-b from-indigo-50 to-white min-h-screen font-raleway">
-      <div className="bg-indigo-950 h-64 relative">
+      <div className="bg-indigo-950 sm:h-64 h-36 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-950 to-red-700 opacity-75"></div>
         <div className="container mx-auto px-4 h-full flex items-end pb-8">
           <h1 className="text-3xl md:text-5xl font-bold text-white relative z-10">

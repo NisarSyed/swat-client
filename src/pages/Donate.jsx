@@ -7,7 +7,6 @@ import { useEffect, useState, useCallback } from 'react';
 const DonationInfoPage = () => {
 
   const [bankAccounts, setBankAccount] = useState([]);
-
   const isingle = bankAccounts.length === 1;
 
   const fetchBankAccount = useCallback(async () => {
@@ -21,7 +20,7 @@ const DonationInfoPage = () => {
 
   useEffect(() => {
     fetchBankAccount();
-  }, [fetchBankAccount]);
+  }, []);
 
   const banner = 
 
