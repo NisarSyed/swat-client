@@ -22,22 +22,6 @@ const Drives = ({ showBanner }) => {
     setFilteredDrives(drives);
   }, [drives]);
 
-  const handleSearch = useCallback((e) => {
-    const term = e.target.value.toLowerCase();
-    setSearchTerm(term);
-    setFilteredDrives(
-      drives.filter(
-        (drive) =>
-          drive.title.toLowerCase().includes(term) ||
-          drive.description.toLowerCase().includes(term)
-      )
-    );
-  }, [drives]);
-
-  const featuredDrive = useMemo(() => {
-    return filteredDrives.length > 0 ? filteredDrives[0] : null;
-  }, [filteredDrives]);
-
   const driveCards = useMemo(() => {
     return filteredDrives.map((drive) => (
       <motion.div
@@ -58,60 +42,27 @@ const Drives = ({ showBanner }) => {
   }, [filteredDrives, navigate]);
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      {showBanner && <Banner banner={banner} text="Drives" />}
+    <div className="mt-auto">
+      {showBanner && <Banner banner={banner} text="Projects" />}
 
-      <div className="container mx-auto px-4 py-8 mt-5">
-        <h2 className="text-5xl font-semibold text-indigo-950 mb-4 font-raleway">
-          Our Drives
-        </h2>
-        <p className="text-xl text-indigo-900 mb-8">
-          Join us in making a difference. Our drives are the heart of our
-          mission to support and uplift our community.
-        </p>
-
-        {/* Search and filter section */}
-        <div className="flex items-center mb-8">
-          <div className="relative flex-grow">
-            <input
-              type="text"
-              placeholder="Search drives..."
-              className="w-full p-3 pl-10 rounded-lg border-2 border-indigo-300 focus:border-indigo-500 focus:outline-none hover:bg-gray-50"
-              value={searchTerm}
-              onChange={handleSearch}
-            />
-            <Search className="absolute left-3 top-3 text-indigo-400" />
-          </div>
-          <button className="ml-4 p-3 bg-red-700 text-white rounded-lg hover:bg-red-600 transition duration-300">
-            <Filter />
-          </button>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <div
+          className={`font-raleway px-5 mt-10 mb-10 md:mb-10 ${
+            showBanner ? "text-left text-indigo-900" : "text-center"
+          }`}
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-pretty antialiased accent-slate-200 text-indigo-950 px-16 font-raleway mb-5">
+            Our <span>Drives</span>
+          </h2>
         </div>
+      </motion.div>
 
-        {/* Featured drive */}
-        {featuredDrive && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-gradient-to-r from-indigo-950 to-indigo-800 rounded-lg p-6 mb-8 text-white"
-          >
-            <h3 className="text-2xl font-bold mb-2">
-              Featured Drive: {featuredDrive.title}
-            </h3>
-            <p className="mb-4">{featuredDrive.description}</p>
-            <button
-              onClick={() => navigate(`/drives/${featuredDrive._id}`)}
-              className="bg-red-800 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300"
-            >
-              Learn More
-            </button>
-          </motion.div>
-        )}
-
-        {/* Drives grid */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5 p-2 px-10 min-w-40 mb-10">
-          {driveCards}
-        </div>
+      <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5 p-2 px-10 min-w-40 mb-10">
+        {driveCards}
       </div>
     </div>
   );
