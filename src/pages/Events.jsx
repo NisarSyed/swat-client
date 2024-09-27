@@ -47,7 +47,7 @@ const Events = ({ showBanner }) => {
             showBanner ? "text-left text-indigo-900" : "text-center"
           }`}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-pretty antialiased accent-slate-200 text-indigo-950 px-16 font-raleway mb-5">
+          <h2 className={` ${!showBanner ? 'custom-underline font-semibold text-indigo-950 mb-10 text-center font-raleway sm:text-5xl text-3xl' : 'text-left text-3xl sm:text-4xl md:text-5xl font-semibold text-pretty antialiased accent-slate-200 text-indigo-950 px-16 font-raleway mb-5'}`}>
             Our Events
           </h2>
         </div>

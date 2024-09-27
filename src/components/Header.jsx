@@ -44,7 +44,7 @@ const Header = () => {
       {/* Top bar */}
       <div className="container mx-auto px-4 py-2">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex flex-col md:flex-row items-center mb-2 md:mb-0 space-y-1 md:space-y-0 md:space-x-4">
+          <div className="flex flex-row md:flex-row items-center mb-2 md:mb-0 space-y-1 md:space-y-0 md:space-x-4 space-x-4">
             <a className="flex items-center">
               <Phone className="mr-2" size={16} />
               <span className="text-sm">{contactInfo.phone1}</span>
@@ -79,23 +79,23 @@ const Header = () => {
       </div>
 
       {/* Logo and Donate button */}
-      <div className="bg-white p-4">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-center sm:space-x-32">
-          <div className="flex items-center mb-4 md:mb-0">
+      <div className="bg-white px-4 py-2">
+        <div className="container mx-auto flex flex-row md:flex-row items-center justify-between sm:space-x-32 px-4 space-x-2">
+          <div className="flex items-center md:mb-0">
             <img
               src="/swat.svg"
               alt="Logo"
-              className="h-36 sm:h-40 w-auto md:mr-14 align-middle"
+              className="h-28 sm:h-40 w-auto md:mr-14 align-middle"
             />
-            <span className="text-indigo-950 text-2xl md:text-3xl lg:text-4xl font-bold font-raleway text-pretty tracking-wide md:block hidden">
+            <span className="text-indigo-950 text-m md:text-3xl lg:text-4xl font-bold font-raleway text-pretty tracking-wide md:block block">
               Social Welfare & Trust IOBM
             </span>
           </div>
           <button
-            className="bg-indigo-950 hover:bg-red-700 text-white font-bold py-1 px-2 sm:py-2 sm:px-4 md:py-3 md:px-6 rounded-lg text-lg md:text-md sm:text-xl font-raleway shadow-md antialiased transition duration-300 sm:ml-0"
+            className="bg-indigo-950 hover:bg-red-700 text-white font-bold py-1 px-2 sm:py-2 sm:px-4 md:py-3 md:px-6 rounded-lg text-m md:text-md sm:text-xl font-raleway shadow-md antialiased transition duration-300 sm:ml-0"
             onClick={handleClick}
           >
-            Donate Now
+            Donate
           </button>
         </div>
       </div>

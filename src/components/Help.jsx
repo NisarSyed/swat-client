@@ -23,7 +23,7 @@ const HelpOptions = ({contact}) => {
   const options = [
     { 
       icon: <Hand size={40} className="text-indigo-950" />, 
-      text: "BECOME VOLUNTEER",
+      text: "BECOME A VOLUNTEER",
       details: "Join our team and make a difference in your community."
     },
     { 

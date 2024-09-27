@@ -16,6 +16,7 @@ import KPISection from "../components/KPIs";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router";
+import Events from "./Events";
 
 const Home = () => {
   const { projects } = useProjects();
@@ -44,13 +45,6 @@ const Home = () => {
     fetchBanners();
   }, []);
 
-  // useEffect(() => {
-  //   if (projects.length > 0 && drives.length > 0 && contact.length > 0) {
-  //     setProjectsData(projects);
-  //     setDrivesData(drives);
-  //     setContactData(contact);
-  //   }
-  // }, [projects, drives, contact]);
 
   useEffect(() => {
     if (contact.length > 0) {
@@ -122,9 +116,13 @@ const Home = () => {
           <div data-aos="fade-up" className="p-4">
             <Appeals projects={projects} drives={drives} />
           </div>
+          <div data-aos="fade-up" className="p-4">
+            <Events showBanner={false} />
+          </div>
           <div data-aos="fade-up" className="bg-slate-100 p-4">
             <KPISection isHome={true} />
           </div>
+        
           <div className="text-center my-8 sm:my-16 p-4" data-aos="fade-up">
             <h2 className="text-3xl sm:text-4xl sm:font-bold font-semibold text-indigo-900 mb-4 sm:mb-6 px-12">Join Us in Making a Difference</h2>
             <motion.button
