@@ -12,6 +12,11 @@ const ProjectDetail = () => {
   const { getProjectById } = useProjects();
   const project = getProjectById(id);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   if (!project) {
     return <div>Project not found</div>;
   }

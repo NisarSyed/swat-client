@@ -12,6 +12,11 @@ const EventDetail = () => {
   const { getEventById } = useEvents();
   const event = getEventById(id);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   if (!event) {
     return <div>Event not found</div>;
   }

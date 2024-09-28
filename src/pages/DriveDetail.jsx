@@ -10,6 +10,11 @@ const DriveDetail = () => {
   const { getDriveById } = useDrives();
   const drive = getDriveById(id);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   if (!drive) {
     return <div>Drive not found</div>;
   }
