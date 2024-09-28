@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEvents } from "../utils/useEvents";
 import ImageGallery from "../components/ImageGallery";
 import { dateFormatter } from "../utils/dateFormatter";
+import { useEffect } from "react";
 
 const EventDetail = () => {
   const { id } = useParams();

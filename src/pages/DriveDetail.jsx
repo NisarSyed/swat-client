@@ -4,6 +4,7 @@ import { Calendar, MapPin, Users, X } from "lucide-react";
 import { useDrives } from "../utils/useDrives";
 import ImageGallery from "../components/ImageGallery";
 import { dateFormatter } from "../utils/dateFormatter";
+import { useEffect } from "react";
 
 const DriveDetail = () => {
   const { id } = useParams();

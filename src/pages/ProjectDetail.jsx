@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useProjects } from "../utils/useProjects";
 import ImageGallery from "../components/ImageGallery";
 import { dateFormatter } from "../utils/dateFormatter";
+import { useEffect } from "react";
 
 const ProjectDetail = () => {
   const { id } = useParams();
