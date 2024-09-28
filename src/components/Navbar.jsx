@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -59,6 +59,19 @@ const Navbar = () => {
                 Contact
               </Link>
             </div>
+          </div>
+
+          {/* Social media icons for mobile view */}
+          <div className="md:hidden flex space-x-4">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-white">
+              <FaInstagram size={24} />
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-white">
+              <FaFacebook size={24} />
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white">
+              <FaLinkedin size={24} />
+            </a>
           </div>
         </div>
 

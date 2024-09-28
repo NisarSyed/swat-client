@@ -42,7 +42,7 @@ const Header = () => {
       transition={{ duration: 0.5 }}
     >
       {/* Top bar */}
-      <div className="container mx-auto px-4 py-2">
+      <div className="container mx-auto px-4 py-2 sm:block hidden">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex flex-row md:flex-row items-center mb-2 md:mb-0 space-y-1 md:space-y-0 md:space-x-4 space-x-4">
             <a className="flex items-center">
@@ -79,7 +79,7 @@ const Header = () => {
       </div>
 
       {/* Logo and Donate button */}
-      <div className="bg-white px-4 py-2">
+      <div className="bg-white px-4 py-2 sm:block hidden">
         <div className="container mx-auto flex flex-row md:flex-row items-center justify-between sm:space-x-32 px-4 space-x-2">
           <div className="flex items-center md:mb-0">
             <img

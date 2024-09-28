@@ -46,6 +46,11 @@ function Banner({ banner, text }) {
             {text}
           </h1>
         </div>
+        <img
+          src="/swat.svg"
+          alt="SWAT Logo"
+          className="absolute top-4 left-4 w-16 h-16 md:w-20 md:h-20"
+        />
       </div>
     </div>
   );
