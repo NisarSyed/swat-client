@@ -8,6 +8,8 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import aos from "aos";
 import { useProjects } from "../utils/useProjects";
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 const banner = {
   id: 1,

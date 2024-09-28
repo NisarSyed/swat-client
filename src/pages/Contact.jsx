@@ -3,6 +3,7 @@ import { FaMapMarkerAlt, FaPhone, FaClock, FaEnvelope, FaFacebookF, FaTwitter, F
 import { motion } from 'framer-motion';
 import Banner from '../components/Banner';
 import { useContact } from '../utils/useContacts';
+import { useEffect } from 'react';
 
 const Contact = () => {
   const { contact } = useContact();

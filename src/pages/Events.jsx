@@ -6,6 +6,8 @@ import EventCard from "../components/EventsCard";
 import Banner from "../components/Banner";
 import { motion } from "framer-motion";
 import { useEvents } from "../utils/useEvents";
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 const banner = {
   id: 1,

@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router';
 import TimelineItem from '../components/TimelineItem';
 import TestimonialCard from '../components/TestimonialCard';
+import { useEffect } from 'react';
 
 const banner = {
   id: 1,
