@@ -17,6 +17,7 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router";
 import Events from "./Events";
+import Collaborators from "../components/Collaborators";
 import LoadingSpinner from "../components/LoadingSpinner"; // Import the loading spinner component
 
 
@@ -130,8 +131,13 @@ const Home = () => {
             <div data-aos="fade-up" className="bg-slate-100 p-4">
               <KPISection isHome={true} />
             </div>
+
+            <div data-aos="fade-up" className="">
+              <Collaborators />
+            </div>
+
             <div className="text-center my-8 sm:my-16 p-4 font-raleway" data-aos="fade-up">
-              <h2 className="text-3xl sm:text-4xl sm:font-bold font-semibold text-indigo-900 mb-4 sm:mb-6 px-12">Join Us in Making a Difference</h2>
+              <h2 className="text-3xl sm:text-4xl sm:font-bold font-bold text-indigo-950 mb-4 sm:mb-6 px-12">Join Us in Making a Difference</h2>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -141,6 +147,7 @@ const Home = () => {
                 Get Involved <ChevronRight className="ml-2" />
               </motion.button>
             </div>
+
           </>
         )}
       </div>
