@@ -15,6 +15,11 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMobileMenuOpen(false);
@@ -63,10 +68,10 @@ const Navbar = () => {
 
           {/* Social media icons for mobile view */}
           <div className="md:hidden flex space-x-4">
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-white">
+            <a href="https://www.instagram.com/swat.iobm/" target="_blank" rel="noopener noreferrer" className="text-white">
               <FaInstagram size={24} />
             </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-white">
+            <a href="https://www.facebook.com/swatiobm" target="_blank" rel="noopener noreferrer" className="text-white">
               <FaFacebook size={24} />
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white">
