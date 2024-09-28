@@ -23,6 +23,11 @@ const Projects = ({ showBanner }) => {
     navigate(`/projects/${projectId}`);
   }, [navigate]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const projectCards = useMemo(() => {
     return projects.map((project) => (
       <ProjectCard

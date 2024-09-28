@@ -7,6 +7,7 @@ import { useContact } from '../utils/useContacts';
 const Contact = () => {
   const { contact } = useContact();
 
+
   const banner = useMemo(() => ({
     id: 1,
     image: 'banner.jpg',
@@ -19,6 +20,11 @@ const Contact = () => {
     hours: 'Mon - Fri: 9:00 AM - 5:00 PM',
     email: '',
   }), []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   const socialMediaLinks = useMemo(() => ([
     { Icon: FaFacebookF, color: 'bg-blue-600', link: 'https://facebook.com/swatiobm' },

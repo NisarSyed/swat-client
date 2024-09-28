@@ -21,6 +21,11 @@ const Events = ({ showBanner }) => {
     navigate(`/events/${eventId}`);
   }, [navigate]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const eventCards = useMemo(() => {
     return events.map((event) => (
       <EventCard

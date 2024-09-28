@@ -22,6 +22,11 @@ const Drives = ({ showBanner }) => {
     setFilteredDrives(drives);
   }, [drives]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const driveCards = useMemo(() => {
     return filteredDrives.map((drive) => (
       <motion.div
