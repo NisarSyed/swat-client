@@ -74,7 +74,7 @@ const Home = () => {
   return (
     <div className="overflow-x-hidden">
       <div className="flex flex-col">
-        <div className="relative h-screen">
+        <div className="relative sm:h-screen h-1/2">
           <Slider {...settings}>
             {banners.map((banner) => (
               <div key={banner._id} className="relative h-screen">
@@ -86,8 +86,14 @@ const Home = () => {
             <img
               src="swat.svg" // Replace with the actual path to your logo
               alt="SWAT Logo"
-              className="absolute top-8 left-1/2 transform -translate-x-1/2 w-40 h-48 sm:hidden block "
+              className="absolute top-8 left-1/2 transform -translate-x-1/2 w-48 h-48 sm:hidden block "
             />
+            <button
+              className="absolute top-56 left-1/2 transform -translate-x-1/2 bg-red-700 text-white px-4 py-2 rounded-full font-bold"
+              onClick={() => navigate('/donate')}
+            >
+              Donate Now
+            </button>
             <h1
               className={`px-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-bold font-raleway transition-opacity duration-1000 ${
                 isVisible ? "opacity-100" : "opacity-0"
