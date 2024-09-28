@@ -90,7 +90,7 @@ const Home = () => {
               className="absolute top-8 left-1/2 transform -translate-x-1/2 w-48 h-48 sm:hidden block"
             />
             <button
-              className="absolute top-60 left-1/2 transform -translate-x-1/2 bg-red-700 text-white px-4 py-2 rounded-full font-bold"
+              className="absolute top-60 left-1/2 transform -translate-x-1/2 bg-red-700 text-white px-4 py-2 rounded-full font-bold sm:hidden block"
               onClick={() => navigate('/donate')}
             >
               Donate Now
