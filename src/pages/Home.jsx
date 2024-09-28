@@ -18,8 +18,7 @@ import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router";
 import Events from "./Events";
 import LoadingSpinner from "../components/LoadingSpinner"; // Import the loading spinner component
-import { useNavigate } from "react-router";
-import { useEffect } from "react";
+
 
 const Home = () => {
   const { projects } = useProjects();

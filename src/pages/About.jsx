@@ -8,7 +8,6 @@ import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router';
 import TimelineItem from '../components/TimelineItem';
 import TestimonialCard from '../components/TestimonialCard';
-import { useEffect } from 'react';
 
 const banner = {
   id: 1,
@@ -16,16 +15,17 @@ const banner = {
   alt: 'Banner 1',
 };
 
-useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
-
 
 const About = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  
   const navigate = useNavigate();
 
   const handleNavigate = () => navigate('/donate');

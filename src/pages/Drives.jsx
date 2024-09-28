@@ -5,7 +5,6 @@ import Banner from "../components/Banner";
 import DrivesCard from "../components/DrivesCard";
 import { useNavigate } from "react-router";
 import { useDrives } from "../utils/useDrives.jsx";
-import { useEffect } from "react";
 
 const Drives = ({ showBanner }) => {
   const banner = {
