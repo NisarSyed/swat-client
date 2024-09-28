@@ -17,6 +17,7 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router";
 import Events from "./Events";
+import LoadingSpinner from "../components/LoadingSpinner"; // Import the loading spinner component
 
 const Home = () => {
   const { projects } = useProjects();
@@ -68,7 +69,7 @@ const Home = () => {
   }), []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner />; // Show loading spinner while data is being fetched
   }
 
   return (
@@ -86,10 +87,10 @@ const Home = () => {
             <img
               src="swat.svg" // Replace with the actual path to your logo
               alt="SWAT Logo"
-              className="absolute top-8 left-1/2 transform -translate-x-1/2 w-48 h-48 sm:hidden block "
+              className="absolute top-8 left-1/2 transform -translate-x-1/2 w-48 h-48 sm:hidden block"
             />
             <button
-              className="absolute top-56 left-1/2 transform -translate-x-1/2 bg-red-700 text-white px-4 py-2 rounded-full font-bold"
+              className="absolute top-60 left-1/2 transform -translate-x-1/2 bg-red-700 text-white px-4 py-2 rounded-full font-bold"
               onClick={() => navigate('/donate')}
             >
               Donate Now
@@ -128,12 +129,12 @@ const Home = () => {
             <div data-aos="fade-up" className="bg-slate-100 p-4">
               <KPISection isHome={true} />
             </div>
-            <div className="text-center my-8 sm:my-16 p-4" data-aos="fade-up">
+            <div className="text-center my-8 sm:my-16 p-4 font-raleway" data-aos="fade-up">
               <h2 className="text-3xl sm:text-4xl sm:font-bold font-semibold text-indigo-900 mb-4 sm:mb-6 px-12">Join Us in Making a Difference</h2>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-red-700 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-full font-bold flex items-center mx-auto text-base sm:text-xl"
+                className="bg-red-700 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-full font-bold flex items-center mx-auto text-base sm:text-xl font-raleway"
                 onClick={() => navigate('/donate')}
               >
                 Get Involved <ChevronRight className="ml-2" />
