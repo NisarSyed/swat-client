@@ -1,7 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 
 const Collaborators = () => {
+  const controls = useAnimation();
   const logos = [
     { id: 1, src: 'Logos/aku.png', alt: 'aku' },
     { id: 2, src: 'Logos/aqua.png', alt: 'aqua' },
@@ -19,6 +20,20 @@ const Collaborators = () => {
     { id: 14, src: 'Logos/tdf.png', alt: 'tdf' },
   ];
 
+  useEffect(() => {
+    controls.start({
+      x: ['0%', '-100%'],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: 'loop',
+          duration: 40,
+          ease: 'linear',
+        },
+      },
+    });
+  }, [controls, 40]);
+
   return (
     <section className="py-16 px-4 sm:px-0 lg:px-0 bg-white overflow-hidden">
       <div className="container mx-auto">
@@ -26,27 +41,22 @@ const Collaborators = () => {
           Our Collaborators
         </h2>
         <div className="mt-12 relative w-full overflow-hidden">
-          <motion.div 
-            className="flex animate-scroll sm:animate-scroll-fast md:animate-scroll lg:animate-scroll"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+          <motion.div
+            className="flex"
+            animate={controls}
+            style={{ width: `${logos.length * 2 * 100}px` }} // Ensure the container is wide enough
           >
             {[...logos, ...logos].map((logo, index) => (
-              <motion.div 
-                key={`${logo.id}-${index}`} 
+              <div
+                key={`${logo.id}-${index}`}
                 className="flex-none sm:w-64 w-40 h-36 mx-4 bg-white flex items-center justify-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05 }}
               >
-                <img 
-                  src={logo.src} 
-                  alt={logo.alt} 
-                  className="max-w-[80%] max-h-[80%]  object-contain sm:max-w-[60%] sm:max-h-[60%] md:max-w-[50%] md:max-h-[50%] lg:max-w-[40%] lg:max-h-[40%]"
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="max-w-[80%] max-h-[80%] object-contain sm:max-w-[60%] sm:max-h-[60%] md:max-w-[50%] md:max-h-[50%] lg:max-w-[70%] lg:max-h-[70%]"
                 />
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
