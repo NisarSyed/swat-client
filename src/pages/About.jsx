@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router';
 import TimelineItem from '../components/TimelineItem';
 import TestimonialCard from '../components/TestimonialCard';
+import Collaborators from '../components/Collaborators';
 
 const banner = {
   id: 1,
@@ -93,6 +94,10 @@ const About = () => {
               author="John D., Volunteer"
             />
           </div>
+        </div>
+
+        <div className="my-8 sm:my-16" data-aos="fade-up">
+          <Collaborators />
         </div>
 
         <div className="text-center my-8 sm:my-16 sm:p-10 p-6" data-aos="fade-up">
