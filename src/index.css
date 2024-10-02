@@ -62,11 +62,11 @@
   }
 
   .sm\\:animate-scroll-fast {
-    animation: scroll 10s linear infinite;
+    animation: scroll 15s linear infinite;
   }
 
   .md\\:animate-scroll-medium {
-    animation: scroll 25s linear infinite;
+    animation: scroll 30s linear infinite;
   }
 
   @keyframes scroll {
